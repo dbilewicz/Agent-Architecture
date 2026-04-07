@@ -264,7 +264,7 @@ One-sentence: Design, configure, and generate prompts for multi-agent Claude Cod
 1. Open [Agent Architecture Designer](https://theJacksonCode.github.io/agent-architecture-designer/)
 2. Select a preset (try "Deep Five Minds Ultimate")
 3. Click "Live Simulation" to see agents interact
-4. Click "Generuj Prompt" to get your system prompt
+4. Click "Generate Prompt" to get your system prompt
 
 No installation. No npm. No build step. Just open the HTML file.
 
@@ -934,7 +934,7 @@ export interface AgentConfig {
 export const AGENT_TEAM: AgentConfig[] = [
   {
     id: 'orchestrator',
-    name: 'Orkiestrator',
+    name: 'Orchestrator',
     model: 'opus',
     phase: 'strategy',
     prompt: '...'
@@ -967,7 +967,7 @@ def run_orchestrator(task: str) -> str:
     response = client.messages.create(
         model="claude-opus-4-6",
         max_tokens=8096,
-        system="""[ROLA: Orkiestrator...]""",
+        system="""[ROLE: Orchestrator...]""",
         messages=[{"role": "user", "content": task}]
     )
     return response.content[0].text

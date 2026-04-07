@@ -40,8 +40,8 @@ Agent Architecture Designer is a single HTML file that lets you drag 28 speciali
 
 1. Open **[Agent Architecture Designer](https://thejacksoncode.github.io/Agent-Architecture/)** in your browser
 2. Select a preset from the sidebar (try **Deep Five Minds Ultimate** for the full experience)
-3. Press **Symulacja** to watch agents interact in real time
-4. Press **Generuj Prompt** to export your system prompt for Claude Code
+3. Press **Simulation** to watch agents interact in real time
+4. Press **Generate Prompt** to export your system prompt for Claude Code
 
 No installation. No npm. No build step. Just open the HTML file.
 
@@ -206,4 +206,4 @@ Built by **[TheJacksonCode](https://github.com/TheJacksonCode)**.
 
 ---
 
-<sub>Interface language: Polish | Documentation language: English</sub>
+<sub>Interface language: English (Polish available) | Documentation language: English</sub>
