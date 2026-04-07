@@ -147,13 +147,17 @@ Skills are invoked as slash commands inside Claude Code (e.g., `/five-minds`, `/
 
 ## Screenshots
 
-| Dark Theme | Light Theme |
-|:---:|:---:|
-| <img src="docs/screenshots/dark.png" alt="Dark theme - canvas with agents" width="400"> | <img src="docs/screenshots/light.png" alt="Light theme - canvas with agents" width="400"> |
+### Dark Theme
+<img src="docs/screenshots/dark.png" alt="Dark theme - canvas with agents" width="100%">
 
-| Live Simulation | Agent Encyclopedia |
-|:---:|:---:|
-| <img src="docs/screenshots/simulation.png" alt="Live Simulation with speech bubbles" width="400"> | <img src="docs/screenshots/encyclopedia.png" alt="Agent Encyclopedia - knowledge cards" width="400"> |
+### Light Theme
+<img src="docs/screenshots/light.png" alt="Light theme - canvas with agents" width="100%">
+
+### Live Simulation
+<img src="docs/screenshots/simulation.png" alt="Live Simulation with speech bubbles" width="100%">
+
+### Agent Encyclopedia
+<img src="docs/screenshots/encyclopedia.png" alt="Agent Encyclopedia - knowledge cards" width="100%">
 
 ## Technical Details
 
