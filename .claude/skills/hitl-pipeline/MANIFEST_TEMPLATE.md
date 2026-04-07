@@ -1,151 +1,151 @@
-<!-- REFERENCE ONLY — Autorytatywny format jest osadzony w SKILL.md.
-     Ten plik sluzy jako dokumentacja/referencja dla ludzi przegladajacych skill. -->
+<!-- REFERENCE ONLY - The authoritative format is embedded in SKILL.md.
+     This file serves as documentation/reference for people browsing the skill. -->
 
-# MANIFEST — Pipeline HITL
+# MANIFEST - HITL Pipeline
 
 ## Meta
-- **Temat:** [TEMAT]
+- **Topic:** [TOPIC]
 - **Start:** [TIMESTAMP]
-- **Status:** W trakcie | Faza 1/6
-- **Model glowny:** [opus/sonnet]
-- **Modele subagentow:** [sonnet/haiku]
+- **Status:** In progress | Phase 1/6
+- **Main model:** [opus/sonnet]
+- **Subagent models:** [sonnet/haiku]
 
 ---
 
-## Faza 1: Strategia
+## Phase 1: Strategy
 
-### Analiza tematu
-[2-3 zdania opisu problemu/zadania]
+### Topic Analysis
+[2-3 sentence description of the problem/task]
 
-### Kluczowe pytania badawcze
-1. [Pytanie 1]
-2. [Pytanie 2]
-3. [Pytanie 3]
+### Key Research Questions
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
 
 ### Scope
-- **IN:** [co jest w zakresie]
-- **OUT:** [co jest poza zakresem]
+- **IN:** [what is in scope]
+- **OUT:** [what is out of scope]
 
-### Dekompozycja
-| Podzadanie | Typ | Priorytet | Zlozonosc |
-|-----------|-----|-----------|-----------|
-| [Podzadanie 1] | Research | Wysoki | M |
-| [Podzadanie 2] | Build | Sredni | L |
-
----
-
-## Brama 1: Strategia -> Research
-- **Wybrana opcja:** [A/B/C — nazwa]
-- **Uzasadnienie:** [1-2 zdania]
-- **Plik bramy:** `gates/BRAMA_1_strategia_research.md`
+### Decomposition
+| Subtask | Type | Priority | Complexity |
+|---------|------|----------|------------|
+| [Subtask 1] | Research | High | M |
+| [Subtask 2] | Build | Medium | L |
 
 ---
 
-## Faza 2: Research
-
-### Subagenci uruchomieni
-| Agent | Kierunek | Status | Kluczowy wynik |
-|-------|---------|--------|----------------|
-| Research Tech | [temat] | Zakonczony | [1 zdanie] |
-| Research UX | [temat] | Zakonczony | [1 zdanie] |
-| Research Community | [temat] | Zakonczony | [1 zdanie] |
-
-### Synteza wynikow
-[5-10 zdaniowe podsumowanie: co sie zgadza, co sie rozni, jakie luki]
-
-### Kluczowe fakty
-- [Fakt 1 — ze zrodla]
-- [Fakt 2]
-- [Fakt 3]
+## Gate 1: Strategy -> Research
+- **Selected option:** [A/B/C - name]
+- **Rationale:** [1-2 sentences]
+- **Gate file:** `gates/GATE_1_strategy_research.md`
 
 ---
 
-## Faza 3: Debata Five Minds
+## Phase 2: Research
+
+### Subagents Launched
+| Agent | Direction | Status | Key Result |
+|-------|-----------|--------|------------|
+| Research Tech | [topic] | Completed | [1 sentence] |
+| Research UX | [topic] | Completed | [1 sentence] |
+| Research Community | [topic] | Completed | [1 sentence] |
+
+### Results Synthesis
+[5-10 sentence summary: what aligns, what differs, what gaps exist]
+
+### Key Facts
+- [Fact 1 - with source]
+- [Fact 2]
+- [Fact 3]
+
+---
+
+## Phase 3: Five Minds Debate
 
 ### Gold Solution
-[3-5 zdaniowe podsumowanie Gold Solution z debaty]
+[3-5 sentence summary of Gold Solution from debate]
 
-### Kluczowe decyzje z debaty
-1. [Decyzja 1]
-2. [Decyzja 2]
-3. [Decyzja 3]
+### Key Decisions from Debate
+1. [Decision 1]
+2. [Decision 2]
+3. [Decision 3]
 
-### Ryzyka zidentyfikowane przez Cienia
-- [Ryzyko 1 + mitygacja]
-- [Ryzyko 2 + mitygacja]
-
----
-
-## Brama 2: Debata -> Build
-- **Wybrana opcja:** [A/B/C — nazwa]
-- **Uzasadnienie:** [1-2 zdania]
-- **Plik bramy:** `gates/BRAMA_2_debata_build.md`
+### Risks Identified by Shadow
+- [Risk 1 + mitigation]
+- [Risk 2 + mitigation]
 
 ---
 
-## Faza 4: Build
-
-### Co zbudowano
-[Opis implementacji]
-
-### Pliki utworzone/zmodyfikowane
-| Plik | Akcja | Opis |
-|------|-------|------|
-| [sciezka] | Utworzony | [co robi] |
-
-### Decyzje techniczne
-- [Decyzja 1 — dlaczego]
-- [Decyzja 2 — dlaczego]
+## Gate 2: Debate -> Build
+- **Selected option:** [A/B/C - name]
+- **Rationale:** [1-2 sentences]
+- **Gate file:** `gates/GATE_2_debate_build.md`
 
 ---
 
-## Brama 3: Build -> QA
-- **Wybrana opcja:** [A/B/C — nazwa]
-- **Uzasadnienie:** [1-2 zdania]
-- **Plik bramy:** `gates/BRAMA_3_build_qa.md`
+## Phase 4: Build
+
+### What Was Built
+[Implementation description]
+
+### Files Created/Modified
+| File | Action | Description |
+|------|--------|-------------|
+| [path] | Created | [what it does] |
+
+### Technical Decisions
+- [Decision 1 - why]
+- [Decision 2 - why]
 
 ---
 
-## Faza 5: QA
+## Gate 3: Build -> QA
+- **Selected option:** [A/B/C - name]
+- **Rationale:** [1-2 sentences]
+- **Gate file:** `gates/GATE_3_build_qa.md`
 
-### Wyniki QA
-| Kategoria | Issues | Krytyczne | Naprawione |
-|-----------|--------|-----------|------------|
+---
+
+## Phase 5: QA
+
+### QA Results
+| Category | Issues | Critical | Fixed |
+|----------|--------|----------|-------|
 | Code Review | [N] | [M] | [K] |
 | Security | [N] | [M] | [K] |
 | Performance | [N] | [M] | [K] |
 
-### Krytyczne znaleziska
-- [Issue 1 — status: naprawiony/otwarty]
+### Critical Findings
+- [Issue 1 - status: fixed/open]
 
 ---
 
-## Podsumowanie
+## Summary
 
-### Wynik koncowy
-[3-5 zdaniowe podsumowanie co osiagnieto]
+### Final Result
+[3-5 sentence summary of what was achieved]
 
-### Kluczowe decyzje
-1. Brama 1: [co wybrano i dlaczego]
-2. Brama 2: [co wybrano i dlaczego]
-3. Brama 3: [co wybrano i dlaczego]
+### Key Decisions
+1. Gate 1: [what was chosen and why]
+2. Gate 2: [what was chosen and why]
+3. Gate 3: [what was chosen and why]
 
-### Rekomendacje na przyszlosc
-- [Rekomendacja 1]
-- [Rekomendacja 2]
+### Recommendations for Future
+- [Recommendation 1]
+- [Recommendation 2]
 
-### Metryki
-- **Czas trwania:** [od startu do konca]
-- **Subagentow uruchomionych:** [N]
-- **Faz zakonczonych:** 6/6
-- **Bram decyzyjnych:** 3/3
+### Metrics
+- **Duration:** [from start to end]
+- **Subagents launched:** [N]
+- **Phases completed:** 6/6
+- **Decision gates:** 3/3
 
 ---
 
-## Log Decyzji
+## Decision Log
 
-| Brama | Opcja | Czas namyslu | Deep dive? | Timestamp |
-|-------|-------|-------------|------------|-----------|
-| 1: Strategia->Research | [A/B/C] | [szybka/deep] | [Tak/Nie] | [timestamp] |
-| 2: Debata->Build | [A/B/C] | [szybka/deep] | [Tak/Nie] | [timestamp] |
-| 3: Build->QA | [A/B/C] | [szybka/deep] | [Tak/Nie] | [timestamp] |
+| Gate | Option | Deliberation | Deep dive? | Timestamp |
+|------|--------|-------------|------------|-----------|
+| 1: Strategy->Research | [A/B/C] | [quick/deep] | [Yes/No] | [timestamp] |
+| 2: Debate->Build | [A/B/C] | [quick/deep] | [Yes/No] | [timestamp] |
+| 3: Build->QA | [A/B/C] | [quick/deep] | [Yes/No] | [timestamp] |

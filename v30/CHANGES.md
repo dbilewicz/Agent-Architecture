@@ -1,41 +1,41 @@
-# v30 — International Edition (PL/EN)
+# v30 - International Edition (PL/EN)
 
-## Zmiany wzgledem v29
+## Changes from v29
 
-### Nowe funkcje
-- **Przelacznik jezyka PL/EN** w topbarze (flaga obok theme toggle)
-- **Pelne tlumaczenie EN** — wszystkie elementy UI, promptow, encyklopedii
-- **localStorage `acV30_lang`** — zapamiętywanie wybranego jezyka
-- **Domyslny jezyk: EN** (dla globalnej publicznosci GitHub)
+### New features
+- **PL/EN language toggle** in the topbar (flag next to theme toggle)
+- **Full EN translation** - all UI elements, prompts, encyclopedia
+- **localStorage `acV30_lang`** - remembers selected language
+- **Default language: EN** (for global GitHub audience)
 
-### Przetlumaczone elementy
-| Element | Ilosc | Status |
+### Translated elements
+| Element | Count | Status |
 |---------|-------|--------|
-| Prompty agentow | 28 | Przetlumaczone |
-| Encyklopedia agentow (AGENT_KNOWLEDGE) | 28 | Przetlumaczone |
-| Encyklopedia presetow (PRESET_KNOWLEDGE) | 29 | Przetlumaczone |
-| Nazwy i opisy agentow | 28 | Przetlumaczone |
-| Nazwy i opisy presetow | 29 | Przetlumaczone |
-| Speech bubbles (AGENT_SPEECH) | 28 | Przetlumaczone |
-| UI (przyciski, tooltips, labels) | ~150 stringow | Przetlumaczone |
-| Glossary | 11 terminow | Przetlumaczone |
-| HITL gates | 3 bramy | Przetlumaczone |
-| Kategorie agentow/presetow | 12 | Przetlumaczone |
-| Final Prompt generator | ~15 stringow | Przetlumaczone |
-| Hero overlay | 3 stringi | Przetlumaczone |
+| Agent prompts | 28 | Translated |
+| Agent encyclopedia (AGENT_KNOWLEDGE) | 28 | Translated |
+| Preset encyclopedia (PRESET_KNOWLEDGE) | 29 | Translated |
+| Agent names and descriptions | 28 | Translated |
+| Preset names and descriptions | 29 | Translated |
+| Speech bubbles (AGENT_SPEECH) | 28 | Translated |
+| UI (buttons, tooltips, labels) | ~150 strings | Translated |
+| Glossary | 11 terms | Translated |
+| HITL gates | 3 gates | Translated |
+| Agent/preset categories | 12 | Translated |
+| Final Prompt generator | ~15 strings | Translated |
+| Hero overlay | 3 strings | Translated |
 
-### Architektura i18n
-- Obiekt `I18N` z kluczami `pl` i `en` zawiera wszystkie tlumaczenia
-- Funkcja `getLang()` zwraca aktualny jezyk
-- Funkcja `switchLang(lang)` przelacza jezyk i przeladowuje UI
-- Funkcje renderujace uzywaja getterow: `t(key)`, `getAgentName(id)`, `getPrompt(id)`, itp.
-- Istniejace dane PL zachowane jako domyslne, EN dodane jako warstwa
+### i18n architecture
+- `I18N` object with `pl` and `en` keys contains all translations
+- `getLang()` function returns the current language
+- `switchLang(lang)` function switches language and reloads UI
+- Rendering functions use getters: `t(key)`, `getAgentName(id)`, `getPrompt(id)`, etc.
+- Existing PL data preserved as default, EN added as a layer
 
-### Szacowany rozmiar
-- v29: ~3531 linii
-- v30: ~5500-6000 linii (+2000 linii tlumaczen)
+### Estimated size
+- v29: ~3531 lines
+- v30: ~5500-6000 lines (+2000 lines of translations)
 
 ### localStorage
-- Klucz konfiguracji: `acV30` (zmieniony z acV29)
-- Klucz motywu: `acV30_theme`
-- Klucz jezyka: `acV30_lang`
+- Config key: `acV30` (changed from acV29)
+- Theme key: `acV30_theme`
+- Language key: `acV30_lang`

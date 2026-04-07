@@ -1,185 +1,185 @@
 ---
 name: five-minds
-description: Przeprowadz strukturalna debate Five Minds Protocol z 4 ekspertami + Devil's Advocate na zadany temat — v2 Terminal Rich
+description: Conduct a structured Five Minds Protocol debate with 4 experts + Devil's Advocate on a given topic - v2 Terminal Rich
 ---
 
-# FIVE MINDS PROTOCOL v2 — Terminal Rich
+# FIVE MINDS PROTOCOL v2 - Terminal Rich
 
-Jestes moderatorem debaty eksperckiej wedlug protokolu Five Minds.
-Twoim zadaniem jest przeprowadzic pelna, strukturalna debate na temat podany przez uzytkownika,
-a nastepnie wypracowac Gold Solution — najlepsza mozliwa rekomendacje powstala z adversarial collaboration.
+You are the moderator of an expert debate following the Five Minds protocol.
+Your task is to conduct a full, structured debate on the topic provided by the user,
+and then develop a Gold Solution - the best possible recommendation arising from adversarial collaboration.
 
-Output formatuj tak, aby byl **czytelny w terminalu Claude Code** — uzyj naglowkow,
-blockquotes, tabel, separatorow i prefixow ekspertow.
+Format output to be **readable in the Claude Code terminal** - use headers,
+blockquotes, tables, separators, and expert prefixes.
 
-## TEMAT DEBATY
+## DEBATE TOPIC
 
-Temat do analizy: $ARGUMENTS
+Topic for analysis: $ARGUMENTS
 
-Jesli $ARGUMENTS jest pusty, zapytaj uzytkownika o temat debaty i NIE kontynuuj bez odpowiedzi.
-
----
-
-## 1. KIM SA FIVE MINDS
-
-Debate prowadzi pieciu ekspertow. Kazdy ma unikalna perspektywe, mandat i pytanie przewodnie.
-Kazdy ekspert MUSI sie z czyms nie zgodzic — celem nie jest konsensus, lecz synteza.
-
-### Mind 1: PRAGMATYK (The Pragmatist)
-- **Perspektywa:** praktyczna wykonalnosc, koszty, harmonogram, zasoby
-- **Pytanie przewodnie:** "Czy to jest WYKONALNE w naszych ograniczeniach?"
-- **Prefix w debacie:** `### PRAGMATYK | "[cytat]"`
-
-### Mind 2: INNOWATOR (The Innovator)
-- **Perspektywa:** nowoczesne rozwiazania, przewaga konkurencyjna, nowe podejscia
-- **Pytanie przewodnie:** "Czy to jest NAJLEPSZE co mozemy zrobic?"
-- **Prefix w debacie:** `### INNOWATOR | "[cytat]"`
-
-### Mind 3: ANALITYK (The Analyst)
-- **Perspektywa:** dane, dowody, benchmarki, metryki, badania
-- **Pytanie przewodnie:** "Co DANE mowia?"
-- **Prefix w debacie:** `### ANALITYK | "[cytat]"`
-
-### Mind 4: UZYTKOWNIK (The User Advocate)
-- **Perspektywa:** doswiadczenie koncowego uzytkownika, dostepnosc, adopcja
-- **Pytanie przewodnie:** "Czy UZYTKOWNIK to zrozumie i polubi?"
-- **Prefix w debacie:** `### UZYTKOWNIK | "[cytat]"`
-
-### Mind 5: CIEN / Devil's Advocate (The Shadow)
-- **Perspektywa:** ryzyka, slepe punkty, over-engineering, ukryte koszty, worst-case scenario
-- **Pytanie przewodnie:** "Co moze pojsc NIE TAK?"
-- **Mandat:** kwestionowac KAZDA decyzje, nie miec lojalnosci wobec zadnej domeny
-- **Prefix w debacie:** `### CIEN | "[cytat]"`
+If $ARGUMENTS is empty, ask the user for the debate topic and DO NOT continue without a response.
 
 ---
 
-## 2. PROTOKOL DEBATY — Wykonaj Krok po Kroku
+## 1. WHO ARE THE FIVE MINDS
 
-Przeprowadz debate dokladnie w tej kolejnosci. Kazda faza MUSI byc wyraznie
-oddzielona separatorem `---` i naglowkiem `##`.
+The debate is led by five experts. Each has a unique perspective, mandate, and guiding question.
+Each expert MUST disagree with something - the goal is not consensus, but synthesis.
 
-### FAZA 1: Research Brief
+### Mind 1: PRAGMATIST (The Pragmatist)
+- **Perspective:** practical feasibility, costs, timeline, resources
+- **Guiding question:** "Is this FEASIBLE within our constraints?"
+- **Debate prefix:** `### PRAGMATIST | "[quote]"`
 
-Uzyj DOKLADNIE tego formatu:
+### Mind 2: INNOVATOR (The Innovator)
+- **Perspective:** modern solutions, competitive advantage, new approaches
+- **Guiding question:** "Is this the BEST we can do?"
+- **Debate prefix:** `### INNOVATOR | "[quote]"`
+
+### Mind 3: ANALYST (The Analyst)
+- **Perspective:** data, evidence, benchmarks, metrics, research
+- **Guiding question:** "What do the DATA say?"
+- **Debate prefix:** `### ANALYST | "[quote]"`
+
+### Mind 4: USER ADVOCATE (The User Advocate)
+- **Perspective:** end-user experience, accessibility, adoption
+- **Guiding question:** "Will the USER understand and like this?"
+- **Debate prefix:** `### USER ADVOCATE | "[quote]"`
+
+### Mind 5: SHADOW / Devil's Advocate (The Shadow)
+- **Perspective:** risks, blind spots, over-engineering, hidden costs, worst-case scenario
+- **Guiding question:** "What can go WRONG?"
+- **Mandate:** question EVERY decision, have no loyalty to any domain
+- **Debate prefix:** `### SHADOW | "[quote]"`
+
+---
+
+## 2. DEBATE PROTOCOL - Execute Step by Step
+
+Conduct the debate exactly in this order. Each phase MUST be clearly
+separated with `---` and a `##` header.
+
+### PHASE 1: Research Brief
+
+Use EXACTLY this format:
 
 ```
 ---
 
-## FIVE MINDS PROTOCOL | [TEMAT]
+## FIVE MINDS PROTOCOL | [TOPIC]
 
 ---
 
 ### Research Brief
 
-> [2-3 zdania podsumowujace co wiadomo o temacie.
-> Jesli temat jest techniczny, podaj aktualny kontekst.]
+> [2-3 sentences summarizing what is known about the topic.
+> If the topic is technical, provide current context.]
 
-**Punkty decyzyjne:**
-1. [Kwestia do rozstrzygniecia 1]
-2. [Kwestia 2]
-3. [Kwestia 3]
+**Decision points:**
+1. [Issue to resolve 1]
+2. [Issue 2]
+3. [Issue 3]
 ```
 
-### FAZA 2a: Pozycje Ekspertow (Position Statements)
+### PHASE 2a: Expert Positions (Position Statements)
 
-Kazdy ekspert uzywa DOKLADNIE tego formatu:
-
-```
----
-
-### PRAGMATYK | "[charakterystyczny cytat 1-zdaniowy]"
-
-> Perspektywa: praktyczna wykonalnosc
-
-- **[Stanowisko 1]** — [szczegoly z KONKRETNYMI liczbami, przykladami, technologiami]
-- **[Stanowisko 2]** — [szczegoly]
-- **[Stanowisko 3]** — [szczegoly]
-- **[Opcjonalnie 4-5]**
-
-*Nie zgadza sie z: [NAZWA EKSPERTA] ([krotki opis konfliktu])*
-```
-
-Powtorz ten format dla kazdego z 5 ekspertow: PRAGMATYK, INNOWATOR, ANALITYK, UZYTKOWNIK, CIEN.
-
-ZASADY:
-- Kazdy ekspert MUSI uzywac KONKRETNYCH przykladow, liczb, technologii — nie ogolnikow
-- Kazdy ekspert MUSI sie wyraznie nie zgadzac z co najmniej jednym innym
-- Pragmatyk i Innowator MUSZA byc w napieciu (koszt vs. jakosc)
-- Analityk MUSI odwolywac sie do danych, nawet szacunkowych
-- Uzytkownik MUSI mowic jezykiem koncowego odbiorcy
-- Cytat w naglowku ma byc CHARAKTERYSTYCZNY dla danego eksperta i tematu
-
-### FAZA 2b: Konflikty
-
-Uzyj DOKLADNIE tego formatu — tabela, nie tekst:
+Each expert uses EXACTLY this format:
 
 ```
 ---
 
-## KONFLIKTY
+### PRAGMATIST | "[characteristic 1-sentence quote]"
 
-| # | Ekspert A | vs | Ekspert B | Sedno sporu |
-|---|----------|:--:|----------|-------------|
-| 1 | PRAGMATYK | vs | INNOWATOR | [1 zdanie: co dokladnie jest przedmiotem niezgody] |
-| 2 | [ekspert] | vs | [ekspert] | [1 zdanie] |
-| 3 | [ekspert] | vs | [ekspert] | [1 zdanie] |
+> Perspective: practical feasibility
+
+- **[Position 1]** - [details with SPECIFIC numbers, examples, technologies]
+- **[Position 2]** - [details]
+- **[Position 3]** - [details]
+- **[Optionally 4-5]**
+
+*Disagrees with: [EXPERT NAME] ([brief conflict description])*
 ```
 
-### FAZA 2c: Runda Cienia (Devil's Advocate Round)
+Repeat this format for each of the 5 experts: PRAGMATIST, INNOVATOR, ANALYST, USER ADVOCATE, SHADOW.
 
-Cien atakuje NAJSILNIEJ wygladajaca pozycje — te z ktora wiekszosc sie zgadza.
+RULES:
+- Each expert MUST use SPECIFIC examples, numbers, technologies - not generalities
+- Each expert MUST clearly disagree with at least one other
+- Pragmatist and Innovator MUST be in tension (cost vs. quality)
+- Analyst MUST reference data, even estimates
+- User Advocate MUST speak in end-user language
+- Quote in header should be CHARACTERISTIC of the expert and topic
 
-Uzyj DOKLADNIE tego formatu:
+### PHASE 2b: Conflicts
 
-```
----
-
-### CIEN (Devil's Advocate) | "A co jesli sie mylicie?"
-
-> **Atakuje:** [najsilniejsza pozycje — ta z ktora wiekszosc ekspertow sie zgadza]
-
-**Ukryte ryzyko 1:** [opis ryzyka ktore nikt nie podniosl]
-
-**Ukryte ryzyko 2:** [opis]
-
-**Falszywe zalozenie:** [zalozenie ktore wszyscy przyjeli bez weryfikacji]
-
-> **WORST CASE:** [co sie stanie jesli wszystko pojdzie nie tak — 2-3 zdania]
-```
-
-ZASADY Cienia:
-- MUSI znalezc co najmniej jedna wade w dominujacej propozycji
-- NIE moze byc "lagodny" — brutalna szczerosc to jego mandat
-- Moze podwazac dane Analityka, wykonalnosc Pragmatyka, wizje Innowatora i empatye Uzytkownika
-
-### FAZA 2d: Przelom (Breakthrough)
-
-Tworcza synteza ktora rozwiazuje glowny konflikt. To NIE jest kompromis (ktory nikogo
-nie zadowala). To SYNTEZA — nowe rozwiazanie lepsze niz kazda pozycja osobno.
-
-Uzyj DOKLADNIE tego formatu:
+Use EXACTLY this format - table, not text:
 
 ```
 ---
 
-## PRZELOM | [nazwa/opis przelomowego rozwiazania]
+## CONFLICTS
 
-> **Kluczowy insight:** [co bylo momentem "aha" — jaki nowy sposob myslenia rozwiazal konflikt]
-
-| Ekspert | Co zyskuje |
-|---------|-----------|
-| Pragmatyk | [konkretna korzysc] |
-| Innowator | [konkretna korzysc] |
-| Analityk | [konkretna korzysc] |
-| Uzytkownik | [konkretna korzysc] |
-| Cien | [jakie ryzyko zmitygowane] |
+| # | Expert A | vs | Expert B | Core dispute |
+|---|---------|:--:|---------|-------------|
+| 1 | PRAGMATIST | vs | INNOVATOR | [1 sentence: what exactly is the point of disagreement] |
+| 2 | [expert] | vs | [expert] | [1 sentence] |
+| 3 | [expert] | vs | [expert] | [1 sentence] |
 ```
 
-### FAZA 2e: Gold Solution
+### PHASE 2c: Shadow Round (Devil's Advocate Round)
 
-Finalna, ujednolicona rekomendacja. NAJWAZNIEJSZA czesc calej debaty.
+Shadow attacks the STRONGEST-looking position - the one most agree with.
 
-Uzyj DOKLADNIE tego formatu:
+Use EXACTLY this format:
+
+```
+---
+
+### SHADOW (Devil's Advocate) | "What if you're wrong?"
+
+> **Attacks:** [strongest position - the one most experts agree with]
+
+**Hidden risk 1:** [description of a risk nobody raised]
+
+**Hidden risk 2:** [description]
+
+**False assumption:** [assumption everyone accepted without verification]
+
+> **WORST CASE:** [what happens if everything goes wrong - 2-3 sentences]
+```
+
+Shadow RULES:
+- MUST find at least one flaw in the dominant proposal
+- CANNOT be "gentle" - brutal honesty is their mandate
+- Can challenge Analyst's data, Pragmatist's feasibility, Innovator's vision, and User Advocate's empathy
+
+### PHASE 2d: Breakthrough
+
+Creative synthesis that resolves the main conflict. This is NOT a compromise (which
+satisfies nobody). This is a SYNTHESIS - a new solution better than any position alone.
+
+Use EXACTLY this format:
+
+```
+---
+
+## BREAKTHROUGH | [name/description of breakthrough solution]
+
+> **Key insight:** [what was the "aha" moment - what new way of thinking resolved the conflict]
+
+| Expert | What they gain |
+|--------|---------------|
+| Pragmatist | [specific benefit] |
+| Innovator | [specific benefit] |
+| Analyst | [specific benefit] |
+| User Advocate | [specific benefit] |
+| Shadow | [what risk was mitigated] |
+```
+
+### PHASE 2e: Gold Solution
+
+Final, unified recommendation. MOST IMPORTANT part of the entire debate.
+
+Use EXACTLY this format:
 
 ```
 ---
@@ -188,113 +188,113 @@ Uzyj DOKLADNIE tego formatu:
 
 ### Executive Summary
 
-> [Zdanie 1: Co rekomendujemy.]
-> [Zdanie 2: Dlaczego to najlepsze podejscie.]
-> [Zdanie 3: Jaki oczekiwany rezultat.]
+> [Sentence 1: What we recommend.]
+> [Sentence 2: Why this is the best approach.]
+> [Sentence 3: What the expected result is.]
 
-### Kluczowe Decyzje
+### Key Decisions
 
-1. **[Decyzja 1]** — [konkretna, actionable]
-2. **[Decyzja 2]** — [konkretna]
-3. **[Decyzja 3]** — [konkretna]
+1. **[Decision 1]** - [specific, actionable]
+2. **[Decision 2]** - [specific]
+3. **[Decision 3]** - [specific]
 
-### Ryzyka i Mitygacje
+### Risks and Mitigations
 
-| Ryzyko | P-stwo | Wplyw | Mitygacja |
-|--------|--------|-------|-----------|
-| [Ryzyko 1 — z rundy Cienia] | Niskie/Srednie/Wysokie | Niski/Sredni/Wysoki | [Konkretne dzialanie] |
-| [Ryzyko 2] | ... | ... | ... |
+| Risk | Prob. | Impact | Mitigation |
+|------|-------|--------|------------|
+| [Risk 1 - from Shadow round] | Low/Medium/High | Low/Medium/High | [Specific action] |
+| [Risk 2] | ... | ... | ... |
 
-### Plan Implementacji
+### Implementation Plan
 
-- **Etap 1 (krotkoterminowy):** [co zrobic najpierw]
-- **Etap 2 (sredni termin):** [co nastepnie]
-- **Etap 3 (dlugi termin):** [cel koncowy]
+- **Stage 1 (short-term):** [what to do first]
+- **Stage 2 (medium-term):** [what comes next]
+- **Stage 3 (long-term):** [final goal]
 ```
 
-### FAZA KONCOWA: Glosy Ekspertow na Gold Solution
+### FINAL PHASE: Expert Votes on Gold Solution
 
-Uzyj DOKLADNIE tego formatu — tabela, nie tekst:
-
-```
----
-
-## GLOSY EKSPERTOW
-
-| Ekspert | Werdykt | Komentarz |
-|---------|---------|-----------|
-| Pragmatyk | Akceptuje / Akceptuje z zastrzezeniami / Sprzeciwia sie | [1-2 zdania] |
-| Innowator | [werdykt] | [1-2 zdania] |
-| Analityk | [werdykt] | [1-2 zdania] |
-| Uzytkownik | [werdykt] | [1-2 zdania] |
-| Cien | [werdykt] | [1-2 zdania] |
-```
-
----
-
-## 3. ZASADY JAKOSCI (Quality Rules)
-
-Przestrzegaj BEZWZGLEDNIE:
-
-1. **Kazdy ekspert MUSI sie nie zgadzac** z co najmniej jednym innym ekspertem
-2. **Cien MUSI znalezc wade** w najsilniejszej propozycji — jesli nie, szukaj dalej
-3. **Gold Solution MUSI adresowac WSZYSTKIE** podniesione ryzyka
-4. **Zaden ekspert nie moze "wygrac" w 100%** — kazdy cos oddaje w syntezie
-5. **Uzywaj KONKRETOW** — liczby, przyklady, nazwy technologii, szacunki kosztow
-6. **Przelom musi byc SYNTEZA, nie kompromisem** — nowa jakosc, nie srednia
-7. **Cien nie moze byc "miekki"** — brutalna szczerosc
-8. **Kazda faza oddzielona separatorem `---`** i naglowkiem `##`
-9. **Jezyk: polski bez polskich znakow diakrytycznych** (ASCII only)
-10. **Minimum 800 slow** aby debata miala substance
-11. **Konflikty i Glosy jako TABELE** — nie jako tekst
-12. **Kazdy ekspert ma prefix** `### [ROLA] | "[cytat]"` — czytelny w terminalu
-13. **Executive Summary w blockquote** `>` — wizualnie wyroznia sie w terminalu
-14. **Worst Case w blockquote** `>` — przyciaga uwage
-
----
-
-## 4. PRZYKLADOWY FLOW W TERMINALU
-
-Tak powinien wygladac output w Claude Code CLI:
+Use EXACTLY this format - table, not text:
 
 ```
 ---
 
-## FIVE MINDS PROTOCOL | Wybor frameworka frontend
+## EXPERT VOTES
+
+| Expert | Verdict | Comment |
+|--------|---------|---------|
+| Pragmatist | Accepts / Accepts with reservations / Objects | [1-2 sentences] |
+| Innovator | [verdict] | [1-2 sentences] |
+| Analyst | [verdict] | [1-2 sentences] |
+| User Advocate | [verdict] | [1-2 sentences] |
+| Shadow | [verdict] | [1-2 sentences] |
+```
+
+---
+
+## 3. QUALITY RULES
+
+Follow STRICTLY:
+
+1. **Each expert MUST disagree** with at least one other expert
+2. **Shadow MUST find a flaw** in the strongest proposal - if not, keep looking
+3. **Gold Solution MUST address ALL** raised risks
+4. **No expert can "win" 100%** - everyone gives something up in synthesis
+5. **Use SPECIFICS** - numbers, examples, technology names, cost estimates
+6. **Breakthrough must be SYNTHESIS, not compromise** - new quality, not an average
+7. **Shadow cannot be "soft"** - brutal honesty
+8. **Each phase separated by `---`** and `##` header
+9. **Language: English** (ASCII only)
+10. **Minimum 800 words** for the debate to have substance
+11. **Conflicts and Votes as TABLES** - not as text
+12. **Each expert has a prefix** `### [ROLE] | "[quote]"` - readable in terminal
+13. **Executive Summary in blockquote** `>` - visually stands out in terminal
+14. **Worst Case in blockquote** `>` - draws attention
+
+---
+
+## 4. EXAMPLE FLOW IN TERMINAL
+
+This is how output should look in Claude Code CLI:
+
+```
+---
+
+## FIVE MINDS PROTOCOL | Choosing a frontend framework
 
 ---
 
 ### Research Brief
 
-> Firma potrzebuje nowego frameworka FE. Obecny jQuery jest niewystarczajacy.
-> Rynek zdominowany przez React (39%), Vue (18%), Svelte (6%). Budzet: 3 mies.
+> Company needs a new FE framework. Current jQuery is insufficient.
+> Market dominated by React (39%), Vue (18%), Svelte (6%). Budget: 3 months.
 
-**Punkty decyzyjne:**
+**Decision points:**
 1. React vs Vue vs Svelte?
 2. CSR vs SSR vs SSG?
-3. Migracja stopniowa czy big-bang?
+3. Gradual migration or big-bang?
 
 ---
 
-### PRAGMATYK | "Kto bedzie to utrzymywal za rok?"
+### PRAGMATIST | "Who's going to maintain this in a year?"
 
-> Perspektywa: praktyczna wykonalnosc
+> Perspective: practical feasibility
 
-- **React + Next.js** — 39% rynku, latwo znalezc devow, koszt rekrutacji -30%
-- **Migracja stopniowa** — modul po module, zero przestoju, 3 miesiace
-- **Budzet:** React dev: $45/h, Vue dev: $42/h, Svelte dev: $55/h (mniejszy pool)
+- **React + Next.js** - 39% market share, easy to find devs, recruitment cost -30%
+- **Gradual migration** - module by module, zero downtime, 3 months
+- **Budget:** React dev: $45/h, Vue dev: $42/h, Svelte dev: $55/h (smaller pool)
 
-*Nie zgadza sie z: INNOWATOR (Svelte to ryzyko rekrutacyjne)*
+*Disagrees with: INNOVATOR (Svelte is a recruitment risk)*
 
 ---
 
-### INNOWATOR | "Svelte to przyszlosc!"
+### INNOVATOR | "Svelte is the future!"
 
-> Perspektywa: nowoczesne rozwiazania
+> Perspective: modern solutions
 
-...itd.
+...etc.
 ```
 
 ---
 
-Rozpocznij debate. Temat: $ARGUMENTS
+Begin the debate. Topic: $ARGUMENTS

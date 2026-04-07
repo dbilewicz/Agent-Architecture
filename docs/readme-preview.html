@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>README Preview</title>
+<style>
+body{margin:0;padding:40px;background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
+.container{max-width:900px;margin:0 auto;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:40px}
+h1{border-bottom:1px solid #30363d;padding-bottom:12px;font-size:28px}
+h2{border-bottom:1px solid #21262d;padding-bottom:8px;margin-top:32px;font-size:22px}
+h3{font-size:17px;margin-top:24px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#1f2937;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'JetBrains Mono',monospace}
+pre{background:#1f2937;border:1px solid #30363d;border-radius:6px;padding:16px;overflow-x:auto;font-size:13px}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th,td{border:1px solid #30363d;padding:8px 12px;text-align:left;font-size:13px}
+th{background:#1f2937;font-weight:600}
+td:nth-child(2){text-align:center}
+blockquote{border-left:3px solid #3fb950;padding:8px 16px;margin:16px 0;background:rgba(63,185,80,0.05);color:#a0aec0}
+strong{color:#f0f0f0}
+ul,ol{padding-left:24px}
+li{margin:4px 0;font-size:14px}
+p{font-size:14px;margin:8px 0}
+img{max-width:100%;border-radius:6px}
+.badge-row{text-align:center;margin:16px 0}
+.badge-row img{margin:0 2px;height:20px;display:inline}
+hr{border:0;border-top:1px solid #30363d;margin:24px 0}
+.center{text-align:center}
+.placeholder{background:#1f2937;border:2px dashed #30363d;border-radius:8px;padding:40px;text-align:center;color:#6a737d;font-size:13px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid .placeholder{padding:24px}
+sub{color:#6a737d}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="badge-row">
+  <img src="https://img.shields.io/badge/version-v0.1.0-blue?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square" alt="Zero Dependencies">
+  <img src="https://img.shields.io/badge/agents-28-blueviolet?style=flat-square" alt="28 Agents">
+  <img src="https://img.shields.io/badge/presets-29-orange?style=flat-square" alt="29 Presets">
+  <img src="https://img.shields.io/badge/built%20with-Vanilla%20JS-yellow?style=flat-square" alt="Vanilla JS">
+  <img src="https://img.shields.io/badge/powered%20by-Claude%20Code-blueviolet?style=flat-square" alt="Claude Code">
+</div>
+
+<h1 class="center">Agent Architecture Designer</h1>
+
+<p class="center"><strong>A visual designer for multi-agent AI teams — drag, connect, and simulate 28 specialized agents across 29 battle-tested workflow presets, entirely in your browser.</strong></p>
+
+<p class="center">
+  <a href="https://vercel-deploy-ten-olive.vercel.app"><strong>Launch Live Demo</strong></a> &nbsp;|&nbsp;
+  <a href="#quick-start">Quick Start</a> &nbsp;|&nbsp;
+  <a href="#features">Features</a> &nbsp;|&nbsp;
+  <a href="#presets">29 Presets</a> &nbsp;|&nbsp;
+  <a href="#agents">28 Agents</a>
+</p>
+
+<hr>
+
+<div class="placeholder">
+  <strong>HERO GIF</strong><br>
+  Tu bedzie 15-20 sek GIF z demo:<br>
+  drag agents → connect → run simulation → Mission Control<br><br>
+  <em>Nagraj za pomoca ScreenToGif, ShareX lub OBS</em>
+</div>
+
+<blockquote><strong>No install needed.</strong> Single HTML file — zero dependencies, zero build step, zero npm. Open in browser and go.</blockquote>
+
+<hr>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<h3>Try it now (no install)</h3>
+<p><a href="https://vercel-deploy-ten-olive.vercel.app"><strong>Launch Live Demo</strong></a> — works in any modern browser.</p>
+
+<h3>Run locally</h3>
+<pre><code>git clone https://github.com/TheJacksonCode/Agent-Architecture.git
+cd Agent-Architecture
+# Open in browser — that's it
+start analizy-html/AGENT_TEAMS_CONFIGURATOR_v29.html    # Windows
+open analizy-html/AGENT_TEAMS_CONFIGURATOR_v29.html     # macOS
+xdg-open analizy-html/AGENT_TEAMS_CONFIGURATOR_v29.html # Linux</code></pre>
+<p>No npm. No build step. No dependencies. Just HTML.</p>
+
+<hr>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li><strong>28 Specialized Agents</strong> — each with research-backed prompts structured as ROLE / INPUT / OUTPUT / RESPONSIBILITIES / RULES / ANTI-PATTERNS</li>
+  <li><strong>29 Workflow Presets</strong> — from Solo (2 agents, ~$0.04) to Deep Five Minds (27 agents, ~$1-3), covering every orchestration pattern</li>
+  <li><strong>Five Minds Protocol</strong> — structured debate with 4 domain experts + Devil's Advocate producing a Gold Solution through adversarial collaboration</li>
+  <li><strong>Human-in-the-Loop Decision Gates</strong> — 3 checkpoints between phases with 120s countdown timer, 3 option cards, and auto-fallback</li>
+  <li><strong>Live Pipeline Simulation</strong> — agents "talk" to each other with animated speech bubbles, processing spinners, and a full Dialog Timeline log</li>
+  <li><strong>Agent Encyclopedia</strong> — encyclopedic knowledge base for every agent and preset: who they are, what they do, what they DON'T do, anti-patterns, fun facts</li>
+  <li><strong>Smart Canvas</strong> — drag-and-drop with marquee selection, auto-place, auto-connect, zoom/pan, minimap, and agent suggestion system</li>
+  <li><strong>Dark / Light Theme</strong> — full CSS variable system with glassmorphism, floating orbs, starfield animation, and cosmic aesthetic</li>
+  <li><strong>57 Custom SVG Icons</strong> — unique stroke-based icons for all 28 agents and 29 presets with theme-aware dual color palette</li>
+  <li><strong>Final Prompt Generator</strong> — one click generates a complete orchestration prompt with colored sections, model badges, and copy-to-clipboard</li>
+  <li><strong>Zero Dependencies</strong> — 3,500 lines of vanilla HTML/CSS/JS in a single file. No framework, no bundler, no runtime.</li>
+</ul>
+
+<hr>
+
+<h2>Screenshots</h2>
+<div class="grid">
+  <div class="placeholder"><strong>Dark Theme</strong><br>Canvas z agentami i polaczeniami</div>
+  <div class="placeholder"><strong>Light Theme</strong><br>Ten sam widok w jasnym motywie</div>
+  <div class="placeholder"><strong>Live Simulation</strong><br>Speech bubbles + Dialog Timeline</div>
+  <div class="placeholder"><strong>Encyclopedia</strong><br>Bento Magazine z wiedza o agencie</div>
+</div>
+
+<hr>
+
+<h2 id="presets">Presets</h2>
+<p>29 ready-to-use orchestration configurations, from micro teams to enterprise-grade hierarchies.</p>
+
+<h3>Micro (2-3 agents)</h3>
+<table>
+  <tr><th>Preset</th><th>Agents</th><th>Pattern</th><th>Use Case</th></tr>
+  <tr><td><strong>Solo + Validator</strong></td><td>2</td><td>Direct Delegation</td><td>Quick tasks, single worker with validation loop</td></tr>
+  <tr><td><strong>Quick Fix</strong></td><td>3</td><td>Fix-Test Loop</td><td>Bug fixes with continuous test cycle</td></tr>
+  <tr><td><strong>Recon Squad</strong></td><td>3</td><td>Hub-and-Spoke</td><td>Research before code — scout then build</td></tr>
+  <tr><td><strong>Classic Trio</strong></td><td>3</td><td>Triangle</td><td>Natural Backend + Frontend + QA split</td></tr>
+  <tr><td><strong>Reflective Loop</strong></td><td>3</td><td>Self-Correction</td><td>Research → Analysis → Critique (no implementation)</td></tr>
+</table>
+
+<h3>Small (4-5 agents)</h3>
+<table>
+  <tr><th>Preset</th><th>Agents</th><th>Pattern</th><th>Use Case</th></tr>
+  <tr><td><strong>Bug Hunter</strong></td><td>4</td><td>Fork QA</td><td>Parallel security + quality QA</td></tr>
+  <tr><td><strong>Content Pipeline</strong></td><td>4</td><td>Linear Pipeline</td><td>2 research sources → editor → QA</td></tr>
+  <tr><td><strong>Plan & Execute</strong></td><td>4</td><td>Plan-and-Execute</td><td>Plan → schedule → build → validate (83% cost reduction)</td></tr>
+  <tr><td><strong>Performance Boost</strong></td><td>4</td><td>Measure-Fix</td><td>Dedicated performance analysis + optimization</td></tr>
+  <tr><td><strong>Startup MVP</strong></td><td>5</td><td>Hub-and-Spoke</td><td>Full cycle: analyst → researcher → builder → QA</td></tr>
+  <tr><td><strong>Cascade Cost</strong></td><td>5</td><td>Cascade Escalation</td><td>Haiku → Sonnet → Opus (70-80% cheaper)</td></tr>
+  <tr><td><strong>Testing Suite</strong></td><td>5</td><td>Triple QA Gate</td><td>3 specialized QA types + manager</td></tr>
+  <tr><td><strong>Accessibility Sprint</strong></td><td>5</td><td>A11y Pipeline</td><td>UX research → designer + frontend → QA → docs</td></tr>
+</table>
+
+<h3>Medium (6-8 agents)</h3>
+<table>
+  <tr><th>Preset</th><th>Agents</th><th>Pattern</th><th>Use Case</th></tr>
+  <tr><td><strong>Security Hardening</strong></td><td>6</td><td>Fan-out → Aggregate</td><td>3-layer security audit with GO/NO-GO gate</td></tr>
+  <tr><td><strong>Code Review</strong></td><td>6</td><td>Pipeline + Fan-out</td><td>Separate build and review tracks</td></tr>
+  <tr><td><strong>Design System</strong></td><td>6</td><td>Design Pipeline</td><td>UX + docs research → designer + frontend → docs</td></tr>
+  <tr><td><strong>API Modernization</strong></td><td>6</td><td>API Upgrade</td><td>Analysis-first approach to API migration</td></tr>
+  <tr><td><strong>UI/UX Overhaul</strong></td><td>7</td><td>UI Redesign</td><td>2 research sources → analysis → design + build → QA</td></tr>
+  <tr><td><strong>Feature Sprint</strong></td><td>7</td><td>Sprint Pipeline</td><td>Full feature development with dual research</td></tr>
+  <tr><td><strong>Standard Dev</strong></td><td>8</td><td>Hierarchical Pipeline</td><td>Complete development cycle — the workhorse</td></tr>
+  <tr><td><strong>Data Pipeline</strong></td><td>8</td><td>Data Engineering</td><td>Planning + research → backend + feature → integration</td></tr>
+</table>
+
+<h3>Large (9-12 agents)</h3>
+<table>
+  <tr><th>Preset</th><th>Agents</th><th>Pattern</th><th>Use Case</th></tr>
+  <tr><td><strong>Research Swarm</strong></td><td>9</td><td>Fan-out → Critique</td><td>6 parallel researchers + critic + synthesizer</td></tr>
+  <tr><td><strong>Legacy Refactor</strong></td><td>9</td><td>Legacy Modernization</td><td>Analysis → 3 builders → 2 QA</td></tr>
+  <tr><td><strong>Full-Stack SaaS</strong></td><td>10</td><td>Hierarchical Squads</td><td>Research → 3-role build → integration → QA</td></tr>
+  <tr><td><strong>Microservices</strong></td><td>11</td><td>Monolith Decomposition</td><td>4 parallel builders → 3 QA</td></tr>
+</table>
+
+<h3>Enterprise (13+ agents)</h3>
+<table>
+  <tr><th>Preset</th><th>Agents</th><th>Pattern</th><th>Use Case</th></tr>
+  <tr><td><strong>Full Hierarchy</strong></td><td>13</td><td>5-Layer Hierarchy</td><td>Gold standard — zero coverage gaps</td></tr>
+  <tr><td><strong>Five Minds Protocol</strong></td><td>14</td><td>Debate → Build</td><td>4 experts + Devil's Advocate adversarial debate</td></tr>
+  <tr><td><strong>Deep Research+Build</strong></td><td>18</td><td>Full Orchestra</td><td>6 researchers + critic + 4 builders + 3 QA (76.9% parallel)</td></tr>
+  <tr><td style="background:rgba(245,158,11,0.1);border-color:#f59e0b"><strong>Deep Five Minds</strong></td><td style="background:rgba(245,158,11,0.1);border-color:#f59e0b">27</td><td style="background:rgba(245,158,11,0.1);border-color:#f59e0b"><strong>ULTIMATE</strong></td><td style="background:rgba(245,158,11,0.1);border-color:#f59e0b">Deep Research → HITL → Five Minds → HITL → Build → HITL → QA</td></tr>
+</table>
+
+<hr>
+
+<h2 id="agents">Agents</h2>
+<p>28 specialized agents organized by role and phase.</p>
+
+<h3>Strategy & Planning (4)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Role</th></tr>
+  <tr><td><strong>Orchestrator</strong></td><td>Opus</td><td>Central decision point — decomposes tasks, delegates, controls GO/NO-GO gates</td></tr>
+  <tr><td><strong>Synthesizer</strong></td><td>Sonnet</td><td>Cross-phase memory — maintains MANIFEST.md as single source of truth</td></tr>
+  <tr><td><strong>Analyst</strong></td><td>Sonnet</td><td>Problem decomposition into independent subtasks with S/M/L/XL estimation</td></tr>
+  <tr><td><strong>Planner</strong></td><td>Sonnet</td><td>Timeline creation, critical path identification, phase gate definitions</td></tr>
+</table>
+
+<h3>Research (7)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Specialty</th></tr>
+  <tr><td><strong>Researcher Tech</strong></td><td>Haiku</td><td>Frameworks, libraries, APIs — compares 3+ options</td></tr>
+  <tr><td><strong>Researcher UX</strong></td><td>Haiku</td><td>UI/UX trends, WCAG 2.1 AA audit</td></tr>
+  <tr><td><strong>Researcher Reddit</strong></td><td>Haiku</td><td>Unfiltered developer opinions</td></tr>
+  <tr><td><strong>Researcher X</strong></td><td>Haiku</td><td>Twitter/X trends from tech influencers</td></tr>
+  <tr><td><strong>Researcher GitHub</strong></td><td>Haiku</td><td>Open-source repo analysis</td></tr>
+  <tr><td><strong>Researcher Forum</strong></td><td>Haiku</td><td>StackOverflow, Dev.to, Medium, HN</td></tr>
+  <tr><td><strong>Researcher Docs</strong></td><td>Haiku</td><td>Official documentation, best practices</td></tr>
+</table>
+
+<h3>Build (6)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Role</th></tr>
+  <tr><td><strong>Backend Dev</strong></td><td>Sonnet</td><td>API endpoints, data schemas, TDD</td></tr>
+  <tr><td><strong>Frontend Dev</strong></td><td>Sonnet</td><td>Mobile-first UI, reusable components</td></tr>
+  <tr><td><strong>Feature Dev</strong></td><td>Sonnet</td><td>WebSocket, AI/ML integrations</td></tr>
+  <tr><td><strong>Designer</strong></td><td>Sonnet</td><td>Design tokens, CSS, animations</td></tr>
+  <tr><td><strong>Integrator</strong></td><td>Sonnet</td><td>Joins output, verifies API contracts</td></tr>
+  <tr><td><strong>Writer</strong></td><td>Sonnet</td><td>README, CHANGELOG, API docs</td></tr>
+</table>
+
+<h3>QA & Audit (4)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Focus</th></tr>
+  <tr><td><strong>QA Security</strong></td><td>Haiku</td><td>OWASP Top 10, secrets, CVE</td></tr>
+  <tr><td><strong>QA Quality</strong></td><td>Haiku</td><td>Requirements, edge cases</td></tr>
+  <tr><td><strong>QA Performance</strong></td><td>Haiku</td><td>Speed, memory, Core Web Vitals</td></tr>
+  <tr><td><strong>QA Manager</strong></td><td>Sonnet</td><td>GO/NO-GO decisions (1-10 scale)</td></tr>
+</table>
+
+<h3>Five Minds (5)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Perspective</th></tr>
+  <tr><td><strong>Pragmatist</strong></td><td>Sonnet</td><td>Feasibility, costs, timeline</td></tr>
+  <tr><td><strong>Innovator</strong></td><td>Sonnet</td><td>Innovation, competitive advantage</td></tr>
+  <tr><td><strong>Data Analyst</strong></td><td>Sonnet</td><td>Data-driven, benchmarks, metrics</td></tr>
+  <tr><td><strong>User Advocate</strong></td><td>Sonnet</td><td>End-user perspective, UX</td></tr>
+  <tr><td><strong>Shadow</strong></td><td>Sonnet</td><td>Devil's Advocate — questions everything</td></tr>
+</table>
+
+<h3>HITL (1)</h3>
+<table>
+  <tr><th>Agent</th><th>Model</th><th>Role</th></tr>
+  <tr><td><strong>Decision Presenter</strong></td><td>Haiku</td><td>Presents 2-3 options impartially, waits for human decision</td></tr>
+</table>
+
+<p><strong>Model distribution:</strong> Opus: 1 | Sonnet: 16 | Haiku: 11</p>
+
+<hr>
+
+<h2>How It Works</h2>
+<pre><code>                    ┌─────────────┐
+                    │ Orchestrator │  ← Central brain (Opus)
+                    └──────┬──────┘
+                           │
+          ┌────────────────┼────────────────┐
+          ▼                ▼                ▼
+    ┌──────────┐    ┌──────────┐    ┌──────────┐
+    │ Research  │    │  Build   │    │    QA    │
+    │  Phase    │    │  Phase   │    │  Phase   │
+    └────┬─────┘    └────┬─────┘    └────┬─────┘
+         │               │               │
+    7 Researchers    6 Builders     4 QA Auditors
+    in isolation     in parallel    fan-out→aggregate
+         │               │               │
+         └───────┬───────┘               │
+                 ▼                       ▼
+          ┌──────────┐           ┌──────────┐
+          │Five Minds│           │QA Manager│
+          │ Debate   │           │ GO/NO-GO │
+          └──────────┘           └──────────┘</code></pre>
+
+<ol>
+  <li><strong>Design</strong> — Drag agents onto the canvas. Connect them. Choose a preset or build from scratch.</li>
+  <li><strong>Configure</strong> — Set models (Opus/Sonnet/Haiku), edit prompts, define phases.</li>
+  <li><strong>Simulate</strong> — Watch agents communicate in real-time with speech bubbles and phase transitions.</li>
+  <li><strong>Decide</strong> — At HITL gates, choose between 3 options (or let the timer auto-decide in 120s).</li>
+  <li><strong>Export</strong> — Generate a complete orchestration prompt. Copy to clipboard. Paste into Claude Code.</li>
+</ol>
+
+<hr>
+
+<h2>Tech Stack</h2>
+<table>
+  <tr><th>Technology</th><th colspan="2">Usage</th></tr>
+  <tr><td>Vanilla JavaScript (ES6+)</td><td colspan="2">Zero frameworks — pure DOM, events, state</td></tr>
+  <tr><td>Single HTML file</td><td colspan="2">3,500 lines — CSS + HTML + JS, zero build step</td></tr>
+  <tr><td>Inline SVG</td><td colspan="2">57 custom stroke-based icons, Bezier curve connections</td></tr>
+  <tr><td>Canvas 2D</td><td colspan="2">Starfield, minimap, data stream animations</td></tr>
+  <tr><td>CSS Custom Properties</td><td colspan="2">25+ variables, dark/light theme system</td></tr>
+  <tr><td>Google Fonts</td><td colspan="2">Space Grotesk, Inter, JetBrains Mono</td></tr>
+  <tr><td>localStorage</td><td colspan="2">Config persistence, theme preference</td></tr>
+  <tr><td>Semantic HTML5</td><td colspan="2">WCAG 2.2 ARIA, prefers-reduced-motion</td></tr>
+</table>
+
+<hr>
+
+<h2>Keyboard Shortcuts</h2>
+<table>
+  <tr><th>Key</th><th colspan="2">Action</th></tr>
+  <tr><td><code>Space</code></td><td colspan="2">Start/pause simulation</td></tr>
+  <tr><td><code>C</code></td><td colspan="2">Toggle connection mode</td></tr>
+  <tr><td><code>L</code></td><td colspan="2">Auto-layout nodes</td></tr>
+  <tr><td><code>D</code></td><td colspan="2">Toggle Dialog Timeline</td></tr>
+  <tr><td><code>E</code></td><td colspan="2">Export configuration</td></tr>
+  <tr><td><code>Del</code></td><td colspan="2">Delete selected agents</td></tr>
+  <tr><td><code>Ctrl+A</code></td><td colspan="2">Select all agents</td></tr>
+  <tr><td><code>Shift+Click</code></td><td colspan="2">Multi-select</td></tr>
+  <tr><td><code>+</code> / <code>-</code></td><td colspan="2">Zoom in/out</td></tr>
+  <tr><td><code>0</code></td><td colspan="2">Reset zoom</td></tr>
+  <tr><td><code>Esc</code></td><td colspan="2">Close panel / deselect / auto-decide HITL</td></tr>
+  <tr><td><code>?</code></td><td colspan="2">Show keyboard shortcuts</td></tr>
+</table>
+
+<hr>
+
+<h2>Contributing</h2>
+<p>Contributions are welcome! Whether it's a bug fix, new preset, or feature idea:</p>
+<ol>
+  <li>Fork the repo</li>
+  <li>Create a branch (<code>git checkout -b feature/my-feature</code>)</li>
+  <li>Make your changes</li>
+  <li>Submit a Pull Request</li>
+</ol>
+
+<hr>
+
+<h2>License</h2>
+<p>MIT License. See <a href="#">LICENSE</a> for details.</p>
+
+<hr>
+
+<p class="center"><sub>Built with vanilla JS and a lot of coffee. Designed for the Claude Code ecosystem.</sub></p>
+
+</div>
+</body>
+</html>

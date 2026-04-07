@@ -14,6 +14,16 @@ TRAINING_CURRICULUM_AI_ENGINEER.md
 # Polish versions of docs (English versions are on GitHub)
 ROADMAP_pl.md
 MANIFEST_pl.md
+CLAUDE_pl.md
+v30/CHANGES_pl.md
+
+# Polish backup files (English versions are on GitHub)
+.claude/commands_pl/
+.claude/skills/five-minds/SKILL_pl.md
+.claude/skills/five-minds/SKILL_v2_terminal_rich_pl.md
+.claude/skills/hitl-pipeline/SKILL_pl.md
+.claude/skills/hitl-pipeline/GATE_TEMPLATE_pl.md
+.claude/skills/hitl-pipeline/MANIFEST_TEMPLATE_pl.md
 
 # Claude Code local settings (may contain API keys)
 .claude/settings.local.json

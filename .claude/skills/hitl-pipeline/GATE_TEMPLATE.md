@@ -1,111 +1,111 @@
-<!-- REFERENCE ONLY — Autorytatywny format jest osadzony w SKILL.md.
-     Ten plik sluzy jako dokumentacja/referencja dla ludzi przegladajacych skill. -->
+<!-- REFERENCE ONLY - The authoritative format is embedded in SKILL.md.
+     This file serves as documentation/reference for people browsing the skill. -->
 
-# BRAMA [N]: [Tytul — np. Strategia -> Research]
+# GATE [N]: [Title - e.g. Strategy -> Research]
 
-> Human-in-the-Loop Decision Gate | Pipeline HITL
-> Wygenerowano: [timestamp]
-
----
-
-## Podsumowanie dotychczasowych wynikow
-
-[3-5 zdaniowe podsumowanie co zrobiono w poprzedniej fazie. Konkretne fakty, nie ogolniki.]
-
-## Kluczowe ustalenia
-
-| # | Ustalenie | Zrodlo | Pewnosc |
-|---|----------|--------|---------|
-| 1 | [Najwazniejszy fakt/wniosek] | [skad wiemy] | Wysoka/Srednia |
-| 2 | [Ustalenie] | [zrodlo] | [pewnosc] |
-| 3 | [Ustalenie] | [zrodlo] | [pewnosc] |
-| 4 | [Ustalenie] | [zrodlo] | [pewnosc] |
-| 5 | [Ustalenie] | [zrodlo] | [pewnosc] |
-
-## Pytanie decyzyjne
-
-**[Jasne, konkretne pytanie na ktore user musi odpowiedziec]**
+> Human-in-the-Loop Decision Gate | HITL Pipeline
+> Generated: [timestamp]
 
 ---
 
-## Opcje
+## Summary of Results So Far
 
-### Opcja A: [Nazwa] -- Rekomendowana
+[3-5 sentence summary of what was done in the previous phase. Concrete facts, not generalities.]
 
-**Opis:** [2-3 zdania co ta opcja oznacza w praktyce]
+## Key Findings
 
-| Aspekt | Ocena |
-|--------|-------|
-| Szacowany koszt tokenow | [np. ~80-120K] |
-| Szacowany koszt $ | [np. $0.08-0.20] |
-| Czas wykonania | [np. 2-4 min] |
-| Pokrycie/jakosc | Wysoka / Srednia / Niska |
-| Ryzyko | Niskie / Srednie / Wysokie |
+| # | Finding | Source | Confidence |
+|---|---------|--------|------------|
+| 1 | [Most important fact/conclusion] | [how we know] | High/Medium |
+| 2 | [Finding] | [source] | [confidence] |
+| 3 | [Finding] | [source] | [confidence] |
+| 4 | [Finding] | [source] | [confidence] |
+| 5 | [Finding] | [source] | [confidence] |
 
-**Zalety:**
-- [Zaleta 1]
-- [Zaleta 2]
-- [Zaleta 3]
+## Decision Question
 
-**Wady:**
-- [Wada 1]
-- [Wada 2]
+**[Clear, specific question the user must answer]**
 
 ---
 
-### Opcja B: [Nazwa]
+## Options
 
-**Opis:** [2-3 zdania]
+### Option A: [Name] -- Recommended
 
-| Aspekt | Ocena |
-|--------|-------|
-| Szacowany koszt tokenow | [np. ~40-80K] |
-| Szacowany koszt $ | [np. $0.04-0.10] |
-| Czas wykonania | [np. 1-2 min] |
-| Pokrycie/jakosc | Wysoka / Srednia / Niska |
-| Ryzyko | Niskie / Srednie / Wysokie |
+**Description:** [2-3 sentences describing what this option means in practice]
 
-**Zalety:**
-- [Zaleta 1]
-- [Zaleta 2]
+| Aspect | Rating |
+|--------|--------|
+| Estimated token cost | [e.g. ~80-120K] |
+| Estimated $ cost | [e.g. $0.08-0.20] |
+| Execution time | [e.g. 2-4 min] |
+| Coverage/quality | High / Medium / Low |
+| Risk | Low / Medium / High |
 
-**Wady:**
-- [Wada 1]
-- [Wada 2]
+**Pros:**
+- [Pro 1]
+- [Pro 2]
+- [Pro 3]
 
----
-
-### Opcja C: [Nazwa]
-
-**Opis:** [2-3 zdania]
-
-| Aspekt | Ocena |
-|--------|-------|
-| Szacowany koszt tokenow | [np. ~60-100K] |
-| Szacowany koszt $ | [np. $0.06-0.15] |
-| Czas wykonania | [np. 1-3 min] |
-| Pokrycie/jakosc | Wysoka / Srednia / Niska |
-| Ryzyko | Niskie / Srednie / Wysokie |
-
-**Zalety:**
-- [Zaleta 1]
-- [Zaleta 2]
-
-**Wady:**
-- [Wada 1]
-- [Wada 2]
+**Cons:**
+- [Con 1]
+- [Con 2]
 
 ---
 
-## Diagram przeplywu
+### Option B: [Name]
+
+**Description:** [2-3 sentences]
+
+| Aspect | Rating |
+|--------|--------|
+| Estimated token cost | [e.g. ~40-80K] |
+| Estimated $ cost | [e.g. $0.04-0.10] |
+| Execution time | [e.g. 1-2 min] |
+| Coverage/quality | High / Medium / Low |
+| Risk | Low / Medium / High |
+
+**Pros:**
+- [Pro 1]
+- [Pro 2]
+
+**Cons:**
+- [Con 1]
+- [Con 2]
+
+---
+
+### Option C: [Name]
+
+**Description:** [2-3 sentences]
+
+| Aspect | Rating |
+|--------|--------|
+| Estimated token cost | [e.g. ~60-100K] |
+| Estimated $ cost | [e.g. $0.06-0.15] |
+| Execution time | [e.g. 1-3 min] |
+| Coverage/quality | High / Medium / Low |
+| Risk | Low / Medium / High |
+
+**Pros:**
+- [Pro 1]
+- [Pro 2]
+
+**Cons:**
+- [Con 1]
+- [Con 2]
+
+---
+
+## Flow Diagram
 
 ```mermaid
 graph TD
-    PREV["Faza N: [nazwa]<br/>Zakonczona"] --> GATE{"BRAMA N<br/>[pytanie]"}
-    GATE -->|"A: [nazwa]"| A["[krotki opis]<br/>Koszt: [X]"]
-    GATE -->|"B: [nazwa]"| B["[krotki opis]<br/>Koszt: [X]"]
-    GATE -->|"C: [nazwa]"| C["[krotki opis]<br/>Koszt: [X]"]
-    A --> NEXT["Faza N+1"]
+    PREV["Phase N: [name]<br/>Completed"] --> GATE{"GATE N<br/>[question]"}
+    GATE -->|"A: [name]"| A["[short description]<br/>Cost: [X]"]
+    GATE -->|"B: [name]"| B["[short description]<br/>Cost: [X]"]
+    GATE -->|"C: [name]"| C["[short description]<br/>Cost: [X]"]
+    A --> NEXT["Phase N+1"]
     B --> NEXT
     C --> NEXT
 
@@ -115,24 +115,24 @@ graph TD
     style C fill:#F87171,stroke:#DC2626,color:#fff
 ```
 
-## Porownanie opcji
+## Option Comparison
 
-| Kryterium | A: [nazwa] | B: [nazwa] | C: [nazwa] |
+| Criterion | A: [name] | B: [name] | C: [name] |
 |-----------|-----------|-----------|-----------|
-| Koszt | [$$/$/$$$] | [$$/$/$$$] | [$$/$/$$$] |
-| Czas | [szybko/srednio/wolno] | [...] | [...] |
-| Jakosc | [wysoka/srednia] | [...] | [...] |
-| Ryzyko | [niskie/srednie/wysokie] | [...] | [...] |
-| Najlepsze gdy | [warunek] | [warunek] | [warunek] |
+| Cost | [$$/$/$$$] | [$$/$/$$$] | [$$/$/$$$] |
+| Time | [fast/medium/slow] | [...] | [...] |
+| Quality | [high/medium] | [...] | [...] |
+| Risk | [low/medium/high] | [...] | [...] |
+| Best when | [condition] | [condition] | [condition] |
 
-## Rekomendacja
+## Recommendation
 
-**Opcja A: [Nazwa]** — [2-3 zdania dlaczego ta opcja jest rekomendowana w kontekscie dotychczasowych ustalen. Konkretne argumenty, nie "bo jest najlepsza".]
+**Option A: [Name]** - [2-3 sentences explaining why this option is recommended given current findings. Concrete arguments, not "because it's the best".]
 
 ---
 
-## Decyzja
+## Decision
 
-> **Wybrano:** _[wypelnia system po decyzji uzytkownika]_
-> **Czas namyslu:** _[szybka / deep dive]_
-> **Timestamp:** _[data i godzina]_
+> **Selected:** _[filled by system after user decision]_
+> **Deliberation time:** _[quick / deep dive]_
+> **Timestamp:** _[date and time]_

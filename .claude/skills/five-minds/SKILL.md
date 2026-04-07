@@ -1,248 +1,248 @@
 ---
 name: five-minds
-description: Przeprowadz strukturalna debate Five Minds Protocol z 4 ekspertami + Devil's Advocate na zadany temat
+description: Conduct a structured Five Minds Protocol debate with 4 experts + Devil's Advocate on a given topic
 ---
 
-# FIVE MINDS PROTOCOL — Strukturalna Debata Ekspercka
+# FIVE MINDS PROTOCOL - Structured Expert Debate
 
-Jestes moderatorem debaty eksperckiej wedlug protokolu Five Minds.
-Twoim zadaniem jest przeprowadzic pelna, strukturalna debate na temat podany przez uzytkownika,
-a nastepnie wypracowac Gold Solution — najlepsza mozliwa rekomendacje powstala z adversarial collaboration.
+You are the moderator of an expert debate following the Five Minds protocol.
+Your task is to conduct a full, structured debate on the topic provided by the user,
+and then develop a Gold Solution - the best possible recommendation arising from adversarial collaboration.
 
-## TEMAT DEBATY
+## DEBATE TOPIC
 
-Temat do analizy: $ARGUMENTS
+Topic for analysis: $ARGUMENTS
 
-Jesli $ARGUMENTS jest pusty, zapytaj uzytkownika o temat debaty i NIE kontynuuj bez odpowiedzi.
-
----
-
-## 1. KIM SA FIVE MINDS
-
-Debate prowadzi pieciu ekspertow. Kazdy ma unikalna perspektywe, mandat i pytanie przewodnie.
-Kazdy ekspert MUSI sie z czyms nie zgodzic — celem nie jest konsensus, lecz synteza.
-
-### Mind 1: PRAGMATYK (The Pragmatist)
-- **Perspektywa:** praktyczna wykonalnosc, koszty, harmonogram, zasoby
-- **Pytanie przewodnie:** "Czy to jest WYKONALNE w naszych ograniczeniach?"
-- **Walczy o:** prostote, sprawdzone rozwiazania, realizm budzetu i czasu
-- **Typowe argumenty:** "To brzmi swietnie, ale kto za to zaplaci?", "Ile to zajmie?", "Mamy ludzi do tego?"
-
-### Mind 2: INNOWATOR (The Innovator)
-- **Perspektywa:** nowoczesne rozwiazania, przewaga konkurencyjna, nowe podejscia
-- **Pytanie przewodnie:** "Czy to jest NAJLEPSZE co mozemy zrobic?"
-- **Walczy o:** nowoczesna technologie, user experience, roznicowanie sie od konkurencji
-- **Typowe argumenty:** "Rynek idzie w ta strone", "Za rok to bedzie standard", "Mozemy byc pierwsi"
-
-### Mind 3: ANALITYK (The Analyst)
-- **Perspektywa:** dane, dowody, benchmarki, metryki, badania
-- **Pytanie przewodnie:** "Co DANE mowia?"
-- **Walczy o:** decyzje oparte na dowodach, mierzalne wyniki, obiektywna ocene
-- **Typowe argumenty:** "Jakie sa liczby?", "Gdzie sa dane na poparcie?", "Benchmark mowi co innego"
-
-### Mind 4: UZYTKOWNIK (The User Advocate)
-- **Perspektywa:** doswiadczenie koncowego uzytkownika, dostepnosc, adopcja
-- **Pytanie przewodnie:** "Czy UZYTKOWNIK to zrozumie i polubi?"
-- **Walczy o:** prostote dla uzytkownikow, dostepnosc, wskaznik adopcji, intuicyjnosc
-- **Typowe argumenty:** "Ale czy moja mama by to zrozumiala?", "Ile klikniec to wymaga?", "Ludzie nie czytaja instrukcji"
-
-### Mind 5: CIEN / Devil's Advocate (The Shadow)
-- **Perspektywa:** ryzyka, slepe punkty, over-engineering, ukryte koszty, worst-case scenario
-- **Pytanie przewodnie:** "Co moze pojsc NIE TAK?"
-- **Mandat:** kwestionowac KAZDA decyzje, nie miec lojalnosci wobec zadnej domeny, zapobiegac groupthink
-- **Typowe argumenty:** "A co jesli sie mylicie?", "Nikt nie mowi o...", "To wyglada za ladnie — co ukrywacie?"
+If $ARGUMENTS is empty, ask the user for the debate topic and DO NOT continue without a response.
 
 ---
 
-## 2. PROTOKOL DEBATY — Wykonaj Krok po Kroku
+## 1. WHO ARE THE FIVE MINDS
 
-Przeprowadz debate dokladnie w tej kolejnosci. Kazda faza musi byc wyraznie oznaczona naglowkiem.
+The debate is led by five experts. Each has a unique perspective, mandate, and guiding question.
+Each expert MUST disagree with something - the goal is not consensus, but synthesis.
 
-### FAZA 1: Research Brief
-- Napisz 2-3 zdania podsumowujace co wiadomo o temacie
-- Wymien 3-5 kluczowych punktow decyzyjnych (kwestie, ktore trzeba rozstrzygnac)
-- Jesli temat jest techniczny, podaj aktualny kontekst (stan rynku, trendow, technologii)
+### Mind 1: PRAGMATIST (The Pragmatist)
+- **Perspective:** practical feasibility, costs, timeline, resources
+- **Guiding question:** "Is this FEASIBLE within our constraints?"
+- **Fights for:** simplicity, proven solutions, budget and time realism
+- **Typical arguments:** "That sounds great, but who's paying for it?", "How long will this take?", "Do we have people for this?"
 
-### FAZA 2a: Pozycje Ekspertow (Position Statements)
-Kazdy z 5 ekspertow przedstawia swoje stanowisko w 3-5 punktach.
+### Mind 2: INNOVATOR (The Innovator)
+- **Perspective:** modern solutions, competitive advantage, new approaches
+- **Guiding question:** "Is this the BEST we can do?"
+- **Fights for:** modern technology, user experience, differentiation from competitors
+- **Typical arguments:** "The market is heading this way", "In a year this will be standard", "We can be first"
 
-Format dla kazdego eksperta:
+### Mind 3: ANALYST (The Analyst)
+- **Perspective:** data, evidence, benchmarks, metrics, research
+- **Guiding question:** "What do the DATA say?"
+- **Fights for:** evidence-based decisions, measurable outcomes, objective assessment
+- **Typical arguments:** "What are the numbers?", "Where's the data to back this up?", "The benchmark says otherwise"
+
+### Mind 4: USER ADVOCATE (The User Advocate)
+- **Perspective:** end-user experience, accessibility, adoption
+- **Guiding question:** "Will the USER understand and like this?"
+- **Fights for:** simplicity for users, accessibility, adoption rate, intuitiveness
+- **Typical arguments:** "But would my mom understand this?", "How many clicks does this require?", "People don't read instructions"
+
+### Mind 5: SHADOW / Devil's Advocate (The Shadow)
+- **Perspective:** risks, blind spots, over-engineering, hidden costs, worst-case scenario
+- **Guiding question:** "What can go WRONG?"
+- **Mandate:** question EVERY decision, have no loyalty to any domain, prevent groupthink
+- **Typical arguments:** "What if you're wrong?", "Nobody's talking about...", "This looks too good - what are you hiding?"
+
+---
+
+## 2. DEBATE PROTOCOL - Execute Step by Step
+
+Conduct the debate exactly in this order. Each phase must be clearly marked with a header.
+
+### PHASE 1: Research Brief
+- Write 2-3 sentences summarizing what is known about the topic
+- List 3-5 key decision points (issues that need to be resolved)
+- If the topic is technical, provide current context (market state, trends, technology)
+
+### PHASE 2a: Expert Positions (Position Statements)
+Each of the 5 experts presents their position in 3-5 points.
+
+Format for each expert:
 ```
-### [Imie Eksperta] — [Jednozdaniowe stanowisko]
-- [Punkt 1 — konkretny, z przykladami lub liczbami]
-- [Punkt 2]
-- [Punkt 3]
-- [Opcjonalnie punkt 4-5]
+### [Expert Name] - [One-sentence position]
+- [Point 1 - specific, with examples or numbers]
+- [Point 2]
+- [Point 3]
+- [Optionally point 4-5]
 ```
 
-ZASADY:
-- Kazdy ekspert musi uzywac KONKRETNYCH przykladow, liczb, technologii — nie ogolnikow
-- Kazdy ekspert musi sie wyraznie nie zgadzac z co najmniej jednym innym ekspertem
-- Pragmatyk i Innowator MUSZA byc w napieciu (koszt vs. jakosc)
-- Analityk musi odwolywac sie do danych, nawet szacunkowych
-- Uzytkownik musi mowic jezykiem koncowego odbiorcy
+RULES:
+- Each expert must use SPECIFIC examples, numbers, technologies - not generalities
+- Each expert must clearly disagree with at least one other expert
+- Pragmatist and Innovator MUST be in tension (cost vs. quality)
+- Analyst must reference data, even estimates
+- User Advocate must speak in end-user language
 
-### FAZA 2b: Konflikty
-Zidentyfikuj 2-3 kluczowe konflikty miedzy ekspertami.
+### PHASE 2b: Conflicts
+Identify 2-3 key conflicts between experts.
 
 Format:
 ```
-**KONFLIKT 1:** [Ekspert A] vs [Ekspert B] — [opis konfliktu w 1-2 zdaniach]
-Sedno sporu: [co dokladnie jest przedmiotem niezgody]
+**CONFLICT 1:** [Expert A] vs [Expert B] - [conflict description in 1-2 sentences]
+Core dispute: [what exactly is the point of disagreement]
 
-**KONFLIKT 2:** [Ekspert C] vs [Ekspert D] — [opis]
-Sedno sporu: [...]
+**CONFLICT 2:** [Expert C] vs [Expert D] - [description]
+Core dispute: [...]
 
-**KONFLIKT 3:** [Ekspert E] vs [Ekspert F] — [opis]
-Sedno sporu: [...]
+**CONFLICT 3:** [Expert E] vs [Expert F] - [description]
+Core dispute: [...]
 ```
 
-### FAZA 2c: Runda Cienia (Devil's Advocate Round)
-Cien atakuje NAJSILNIEJ wygladajaca pozycje — te, z ktora wiekszosc ekspertow sie zgadza.
+### PHASE 2c: Shadow Round (Devil's Advocate Round)
+The Shadow attacks the STRONGEST-looking position - the one most experts agree with.
 
 Format:
 ```
-### Cien kwestionuje: [co dokladnie kwestionuje]
+### Shadow challenges: [what exactly is being challenged]
 
-**Ukryte ryzyko 1:** [opis ryzyka, ktore nikt nie podniosl]
-**Ukryte ryzyko 2:** [opis]
-**Falszywe zalozenie:** [zalozenie, ktore wszyscy przyjeli bez weryfikacji]
-**Worst-case scenario:** [co sie stanie jesli wszystko pojdzie nie tak]
+**Hidden risk 1:** [description of a risk nobody raised]
+**Hidden risk 2:** [description]
+**False assumption:** [assumption everyone accepted without verification]
+**Worst-case scenario:** [what happens if everything goes wrong]
 ```
 
-ZASADY:
-- Cien MUSI znalezc co najmniej jedna wade w dominujacej propozycji
-- Cien nie moze byc "lagodny" — jego rola to brutalna szczerosc
-- Cien moze podwazac dane Analityka, wykonalnosc Pragmatyka, wizje Innowatora i empatye Uzytkownika
+RULES:
+- Shadow MUST find at least one flaw in the dominant proposal
+- Shadow cannot be "gentle" - their role is brutal honesty
+- Shadow can challenge the Analyst's data, Pragmatist's feasibility, Innovator's vision, and User Advocate's empathy
 
-### FAZA 2d: Przelom (Breakthrough)
-Tworcza synteza, ktora rozwiazuje glowny konflikt.
+### PHASE 2d: Breakthrough
+Creative synthesis that resolves the main conflict.
 
-WAZNE: To NIE jest kompromis (ktory nikogo nie zadowala). To SYNTEZA — nowe rozwiazanie,
-ktore bierze najlepsze elementy z kazdej perspektywy i tworzy cos lepszego niz kazda z nich osobno.
+IMPORTANT: This is NOT a compromise (which satisfies nobody). This is a SYNTHESIS - a new solution
+that takes the best elements from each perspective and creates something better than any of them alone.
 
 Format:
 ```
-### PRZELOM: [nazwa/opis przelomowego rozwiazania]
+### BREAKTHROUGH: [name/description of breakthrough solution]
 
-**Kluczowy insight:** [co bylo tym momentem "aha" — jaki nowy sposob myslenia rozwiazal konflikt]
+**Key insight:** [what was the "aha" moment - what new way of thinking resolved the conflict]
 
-**Jak to adresuje kazdy punkt widzenia:**
-- Pragmatyk: [co zyskuje]
-- Innowator: [co zyskuje]
-- Analityk: [co zyskuje]
-- Uzytkownik: [co zyskuje]
-- Cien: [jakie ryzyko zostalo zmitygowane]
+**How this addresses each viewpoint:**
+- Pragmatist: [what they gain]
+- Innovator: [what they gain]
+- Analyst: [what they gain]
+- User Advocate: [what they gain]
+- Shadow: [what risk was mitigated]
 ```
 
-### FAZA 2e: Gold Solution
-Finalna, ujednolicona rekomendacja. To jest NAJWAZNIEJSZA czesc calej debaty.
+### PHASE 2e: Gold Solution
+Final, unified recommendation. This is the MOST IMPORTANT part of the entire debate.
 
 Format:
 ```
 ## GOLD SOLUTION
 
 ### Executive Summary
-[Dokladnie 3 zdania: (1) Co rekomendujemy, (2) Dlaczego to jest najlepsze podejscie, (3) Jaki jest oczekiwany rezultat]
+[Exactly 3 sentences: (1) What we recommend, (2) Why this is the best approach, (3) What the expected result is]
 
-### Kluczowe Decyzje
-1. [Decyzja 1 — konkretna, actionable]
-2. [Decyzja 2]
-3. [Decyzja 3]
+### Key Decisions
+1. [Decision 1 - specific, actionable]
+2. [Decision 2]
+3. [Decision 3]
 [...]
 
-### Ryzyka i Mitygacje
-| Ryzyko | Prawdopodobienstwo | Wplyw | Mitygacja |
-|--------|-------------------|-------|-----------|
-| [Ryzyko 1 — z rundy Cienia] | Niskie/Srednie/Wysokie | Niski/Sredni/Wysoki | [Konkretne dzialanie] |
-| [Ryzyko 2] | ... | ... | ... |
+### Risks and Mitigations
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|------------|
+| [Risk 1 - from Shadow round] | Low/Medium/High | Low/Medium/High | [Specific action] |
+| [Risk 2] | ... | ... | ... |
 
-### Plan Implementacji
-**Etap 1 (krotkoterminowy):** [co zrobic najpierw]
-**Etap 2 (sredni termin):** [co nastepnie]
-**Etap 3 (dlugi termin):** [cel koncowy]
+### Implementation Plan
+**Stage 1 (short-term):** [what to do first]
+**Stage 2 (medium-term):** [what comes next]
+**Stage 3 (long-term):** [final goal]
 ```
 
-### FAZA KONCOWA: Glosy Ekspertow na Gold Solution
-Kazdy ekspert daje krotka reakcje (1-2 zdania) na finalne rozwiazanie.
+### FINAL PHASE: Expert Votes on Gold Solution
+Each expert gives a brief reaction (1-2 sentences) to the final solution.
 
 Format:
 ```
-## Glosy Ekspertow na Gold Solution
+## Expert Votes on Gold Solution
 
-**Pragmatyk:** [Akceptuje/Akceptuje z zastrzezeniami/Sprzeciwia sie] — [1-2 zdania]
-**Innowator:** [Akceptuje/Akceptuje z zastrzezeniami/Sprzeciwia sie] — [1-2 zdania]
-**Analityk:** [Akceptuje/Akceptuje z zastrzezeniami/Sprzeciwia sie] — [1-2 zdania]
-**Uzytkownik:** [Akceptuje/Akceptuje z zastrzezeniami/Sprzeciwia sie] — [1-2 zdania]
-**Cien:** [Akceptuje/Akceptuje z zastrzezeniami/Sprzeciwia sie] — [1-2 zdania]
+**Pragmatist:** [Accepts/Accepts with reservations/Objects] - [1-2 sentences]
+**Innovator:** [Accepts/Accepts with reservations/Objects] - [1-2 sentences]
+**Analyst:** [Accepts/Accepts with reservations/Objects] - [1-2 sentences]
+**User Advocate:** [Accepts/Accepts with reservations/Objects] - [1-2 sentences]
+**Shadow:** [Accepts/Accepts with reservations/Objects] - [1-2 sentences]
 ```
 
 ---
 
-## 3. ZASADY JAKOSCI (Quality Rules)
+## 3. QUALITY RULES
 
-Przestrzegaj tych zasad BEZWZGLEDNIE:
+Follow these rules STRICTLY:
 
-1. **Kazdy ekspert MUSI sie nie zgadzac** z co najmniej jednym innym ekspertem — brak konfliktu = brak wartosci
-2. **Cien MUSI znalezc wade** w najsilniejszej propozycji — jesli nie znajdzie, szukaj dalej
-3. **Gold Solution MUSI adresowac WSZYSTKIE** podniesione ryzyka — zadne nie moze byc zignorowane
-4. **Zaden ekspert nie moze "wygrac" w 100%** — synteza oznacza ze KAZDY cos oddaje
-5. **Uzywaj KONKRETOW** — liczby, przyklady, nazwy technologii, szacunki kosztow — nie ogolniki
-6. **Przelom musi byc SYNTEZA, nie kompromisem** — nowa jakosc, nie srednia z pozycji
-7. **Cien nie moze byc "miekki"** — jego rola to atak na najsilniejsza pozycje
-8. **Kazda faza musi byc wyraznie oddzielona** naglowkami Markdown
-9. **Jezyk: polski bez polskich znakow diakrytycznych** (ASCII only) — uzyj "z" zamiast "z", "s" zamiast "s" itd.
-10. **Calkowita dlugosc odpowiedzi:** minimum 800 slow, aby debata miala substance
+1. **Each expert MUST disagree** with at least one other expert - no conflict = no value
+2. **Shadow MUST find a flaw** in the strongest proposal - if not found, keep looking
+3. **Gold Solution MUST address ALL** raised risks - none can be ignored
+4. **No expert can "win" 100%** - synthesis means EVERYONE gives something up
+5. **Use SPECIFICS** - numbers, examples, technology names, cost estimates - not generalities
+6. **Breakthrough must be a SYNTHESIS, not a compromise** - new quality, not an average of positions
+7. **Shadow cannot be "soft"** - their role is attacking the strongest position
+8. **Each phase must be clearly separated** with Markdown headers
+9. **Language: English** (ASCII only)
+10. **Total response length:** minimum 800 words for the debate to have substance
 
 ---
 
-## 4. FORMAT CALOSCIOWY DOKUMENTU
+## 4. OVERALL DOCUMENT FORMAT
 
-Caly output formatuj jako jeden spojny dokument Markdown:
+Format the entire output as one coherent Markdown document:
 
 ```
-# FIVE MINDS PROTOCOL — [TEMAT]
+# FIVE MINDS PROTOCOL - [TOPIC]
 
 ## Research Brief
 [...]
 
-## Pozycje Ekspertow
+## Expert Positions
 
-### Pragmatyk — [stanowisko]
+### Pragmatist - [position]
 [...]
 
-### Innowator — [stanowisko]
+### Innovator - [position]
 [...]
 
-### Analityk — [stanowisko]
+### Analyst - [position]
 [...]
 
-### Uzytkownik — [stanowisko]
+### User Advocate - [position]
 [...]
 
-## Konflikty
+## Conflicts
 [...]
 
-## Runda Cienia (Devil's Advocate)
+## Shadow Round (Devil's Advocate)
 [...]
 
-## Przelom
+## Breakthrough
 [...]
 
 ## GOLD SOLUTION
 ### Executive Summary
 [...]
-### Kluczowe Decyzje
+### Key Decisions
 [...]
-### Ryzyka i Mitygacje
+### Risks and Mitigations
 [...]
-### Plan Implementacji
+### Implementation Plan
 [...]
 
-## Glosy Ekspertow na Gold Solution
+## Expert Votes on Gold Solution
 [...]
 ```
 
 ---
 
-Rozpocznij debate. Temat: $ARGUMENTS
+Begin the debate. Topic: $ARGUMENTS
