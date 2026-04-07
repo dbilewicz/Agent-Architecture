@@ -3360,7 +3360,7 @@ function rysujStrumien(e,id){e.dataTransfer.setData('did',id)}
 cvA.addEventListener('dragover',function(e){e.preventDefault()});
 cvA.addEventListener('drop',function(e){e.preventDefault();const did=e.dataTransfer.getData('did');if(!did)return;const r=cvA.getBoundingClientRect();dodajW(did,(e.clientX-r.left-panX)/scale-36,(e.clientY-r.top-panY)/scale-30)});
 // V23: Context menu removed (model selection moved to sidebar)
-function dodajW(did,x,y){const d=AD_MAP.get(did);if(!d)return;const id='n'+(idC++);nodes.push({id,defId:did,x,y,model:d.model,cp:d.prompt});rWez();sel.clear();sel.add(id);aktZazn();pokazWezel(id);aktStan();aktLicznik();
+function dodajW(did,x,y){const d=AD_MAP.get(did);if(!d)return;const id='n'+(idC++);nodes.push({id,defId:did,x,y,model:d.model,cp:null});rWez();sel.clear();sel.add(id);aktZazn();pokazWezel(id);aktStan();aktLicznik();
   // V21: Drop pulse animation on node
   const el=G(id);if(el){el.classList.add('just-dropped');setTimeout(function(){el.classList.remove('just-dropped')},700)}
   // V21: Flash control bar to draw attention
@@ -3514,9 +3514,9 @@ if(_kn){
   h+='<div class="ds"><div class="ds-l" style="color:var(--accent4)">'+t('CZEGO NIE ROBI')+'</div><ul style="list-style:none;padding:0;margin:0">'+_kn.doesNot.slice(0,3).map(function(x){return '<li style="font-size:9px;color:var(--t2);padding:2px 0 2px 14px;position:relative"><span style="position:absolute;left:0;color:var(--accent4)">\u2717</span>'+x+'</li>'}).join('')+'</ul></div>';
 }
 // Prompt display
-h+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+(nd.cp||d.prompt).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+h+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+(nd.cp||getPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
 // Editable prompt
-h+='<div class="ds"><div class="ds-l">'+t('EDYTUJ PROMPT')+'</div><textarea class="ds-ta" id="nP" oninput="generujPreset(\''+nid+'\')" style="min-height:100px">'+(nd.cp||d.prompt).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea></div>';
+h+='<div class="ds"><div class="ds-l">'+t('EDYTUJ PROMPT')+'</div><textarea class="ds-ta" id="nP" oninput="generujPreset(\''+nid+'\')" style="min-height:100px">'+(nd.cp||getPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea></div>';
 // Learn button
 h+='<button class="btn btn-learn" onclick="otworzEncykl(\'agent\',\''+nd.defId+'\')">&#128218; '+t('Encyklopedia agenta')+'</button>';
 G('srS').innerHTML=h}
@@ -3525,7 +3525,7 @@ function pokazDef(did){if(learnOpen){otworzEncykl('agent',did);return}const d=AD
 let dh='<div class="ds-card"><div class="ds-avatar"><div class="ds-avatar-orb">'+svgAgenta(d.id,32)+'</div><div class="ds-avatar-info"><h4>'+getAgentName(d.id)+'</h4><div class="ds-role">'+getCatLabel(d.cat)+'</div></div></div><p style="font-size:10px;color:var(--t2);line-height:1.5">'+getAgentDesc(d.id)+'</p></div>';
 dh+='<div class="ds"><div class="ds-l">'+t('NARZEDZIA')+'</div><div class="ds-tools-list">'+d.tools.split(',').map(tool=>'<span class="ds-tool-chip">'+tool.trim()+'</span>').join('')+'</div></div>';
 dh+='<div class="ds"><div class="ds-l">'+t('MODEL')+'</div><div class="ds-v">'+d.model.toUpperCase()+'</div></div>';
-dh+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+d.prompt.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+dh+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+getPrompt(d.id).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
 // V21: Knowledge preview in palette detail
 const _kd=getAgentKnowledge(did);
 if(_kd){
@@ -3554,7 +3554,7 @@ function autoUmiesc(did){
     else{x=maxX+140;y=samePhase[samePhase.length-1].y}
   } else {x=(PHASE_X[phase]||400)+(Math.random()-.5)*40;y=(PHASE_Y[phase]||300)}
   const nid='n'+(idC++);
-  nodes.push({id:nid,defId:did,x:x,y:y,model:d.model,cp:d.prompt});
+  nodes.push({id:nid,defId:did,x:x,y:y,model:d.model,cp:null});
   autoPolacz(nid,did);
   rWez();sel.clear();sel.add(nid);aktZazn();pokazWezel(nid);aktStan();aktLicznik();aktPasekFaz();
   pokazToast('\u2713 '+t('Agent dodany i polaczony'));
@@ -4037,7 +4037,7 @@ function ladujPreset(pid){
   // V21: If learn panel is open, switch to preset encyclopedia instead of loading preset
   if(learnOpen){otworzEncykl('preset',pid);return}
   nodes=[];conns=[];sel.clear();idC=0;actPr=pid;const pr=PR[pid];if(!pr)return;
-pr.forEach(function(p){const d=AD_MAP.get(p.d);if(!d)return;nodes.push({id:'n'+(idC++),defId:p.d,x:p.x,y:p.y,model:d.model,cp:d.prompt})});
+pr.forEach(function(p){const d=AD_MAP.get(p.d);if(!d)return;nodes.push({id:'n'+(idC++),defId:p.d,x:p.x,y:p.y,model:d.model,cp:null})});
 (PC[pid]||[]).forEach(function(c){if(nodes[c[0]]&&nodes[c[1]])conns.push({id:'c'+(idC++),fi:nodes[c[0]].id,ti:nodes[c[1]].id,tp:c[2]||'one'})});
 rWez();aktStan();aktLicznik();podswPreset(pid);pokazInfoPr(pid);aktPasekFaz();
 if(nodes.length){const mnX=Math.min(...nodes.map(n=>n.x)),mxX=Math.max(...nodes.map(n=>n.x));
@@ -4105,7 +4105,7 @@ scale=1;panX=0;panY=0;zastTransf();rWez();aktStan();aktLicznik()}
 function eksportujKfg(){const d={v:'31.0',pr:actPr,nodes:nodes.map(n=>({d:n.defId,x:Math.round(n.x),y:Math.round(n.y),m:n.model,p:n.cp})),conns:conns.map(c=>({fi:nodes.findIndex(n=>n.id===c.fi),ti:nodes.findIndex(n=>n.id===c.ti),t:c.tp})),prob:G('probIn').value};G('exA').value=JSON.stringify(d,null,2);G('moE').classList.add('show')}
 function importujKfg(){G('imA').value='';G('moI').classList.add('show')}
 function wykonajImport(){try{const d=JSON.parse(G('imA').value);nodes=[];conns=[];idC=0;sel.clear();
-(d.nodes||[]).forEach(n=>{const def=AD_MAP.get(n.d);if(!def)return;nodes.push({id:'n'+(idC++),defId:n.d,x:n.x||0,y:n.y||0,model:n.m||def.model,cp:n.p||def.prompt})});
+(d.nodes||[]).forEach(n=>{const def=AD_MAP.get(n.d);if(!def)return;nodes.push({id:'n'+(idC++),defId:n.d,x:n.x||0,y:n.y||0,model:n.m||def.model,cp:n.p||null})});
 (d.conns||[]).forEach(c=>{if(nodes[c.fi]&&nodes[c.ti])conns.push({id:'c'+(idC++),fi:nodes[c.fi].id,ti:nodes[c.ti].id,tp:c.t||'one'})});
 if(d.prob)G('probIn').value=d.prob;actPr=d.pr||null;rWez();aktStan();aktLicznik();aktPasekFaz();zamknijModal('moI')}catch(e){alert('JSON error: '+e.message)}}
 function zapiszKfg(){const name=prompt('Nazwa:')||'Config '+new Date().toLocaleString('pl-PL');
@@ -4130,7 +4130,7 @@ const iC=conns.filter(c=>c.ti===nd.id).map(c=>{const sn=nodes.find(n=>n.id===c.f
 p+='### '+(isEn?'Agent':'Agent')+' '+(i+1)+': '+getAgentName(d.id)+' ['+nd.model.toUpperCase()+']\n'+(isEn?'Role: ':'Rola: ')+getAgentDesc(d.id)+'\n';
 if(iC.length)p+=(isEn?'Receives from: ':'Odbiera od: ')+iC.join(', ')+'\n';
 if(oC.length)p+=(isEn?'Sends to: ':'Wysyla do: ')+oC.join(', ')+'\n';
-p+='\n'+(isEn?'Prompt':'Prompt')+':\n"""\n'+nd.cp+'\n"""\n\n'});
+p+='\n'+(isEn?'Prompt':'Prompt')+':\n"""\n'+getPrompt(nd.defId)+'\n"""\n\n'});
 p+=isEn
   ?'## RULES\n- Narrow context per agent\n- MANIFEST.md scratchpad\n- Gates between phases\n- Max 10 sequential steps\n- Opus=strategy, Sonnet=build, Haiku=research/QA\n\n## EXECUTION\nTop to bottom, parallel within level.\n'
   :'## ZASADY\n- Waski kontekst per agent\n- MANIFEST.md scratchpad\n- Gate\'y miedzy fazami\n- Max 10 krokow sekwencyjnych\n- Opus=strategia, Sonnet=build, Haiku=research/QA\n\n## URUCHAMIANIE\nOd gory do dolu, rownolegle na poziomie.\n';
@@ -4170,7 +4170,7 @@ function rysujFPKolor(){
       const roleDesc=getAgentDesc(d.id);
       h+='<span class="fp-section-role">'+(roleDesc.length>60?roleDesc.substring(0,60)+'...':roleDesc)+'</span>';
       h+='</div>';
-      h+='<div class="fp-section-body">'+(nd.cp||d.prompt).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';
+      h+='<div class="fp-section-body">'+(nd.cp||getPrompt(d.id)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';
       h+='</div>';
     });
   });
