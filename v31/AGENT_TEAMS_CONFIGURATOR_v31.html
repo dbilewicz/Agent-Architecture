@@ -804,7 +804,7 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
 
 <div class="app">
 <header class="topbar">
-  <div class="tb-brand"><h1 style="font:inherit;margin:0">&#10022; Agent Designer</h1><small>v25 HITL</small></div>
+  <div class="tb-brand"><h1 style="font:inherit;margin:0">&#10022; Agent Designer</h1><small>v31 Audit</small></div>
   <div class="tb-sep"></div>
   <div class="tb-problem"><textarea id="probIn" placeholder="Opisz projekt lub problem..." aria-label="Opis projektu"></textarea></div>
   <div class="tb-actions">
@@ -853,8 +853,8 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
       <button class="btn btn-ac" id="acBtn" onclick="autoPolaczZazn()">&#9889; Auto-polacz</button>
       <button class="btn" onclick="autoUklad()">&#9638; Layout</button>
       <button class="btn" id="dtlBtn" onclick="przelDTL()" style="display:none">&#128172; Dialog</button>
-      <button class="btn btn-d" onclick="usunZazn()">&#128465; Usun</button>
-      <button class="btn btn-d" onclick="czyscCanvas()">Wyczysc</button>
+      <button class="btn btn-d" id="delBtn" onclick="usunZazn()">&#128465; Usun</button>
+      <button class="btn btn-d" id="clrBtn" onclick="czyscCanvas()">Wyczysc</button>
     </div>
     <div class="zm-ctrl" aria-label="Kontrola zoomu">
       <button class="btn" onclick="przybliz()" aria-label="Przybliz">+</button>
@@ -869,11 +869,11 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
   <!-- BENTO MAGAZINE OVERLAY -->
   <div class="learn-overlay" id="learnO">
     <div class="bento-bg"><div class="bento-orb orb1"></div><div class="bento-orb orb2"></div><div class="bento-orb orb3"></div></div>
-    <button class="bento-close" onclick="zamknijEncykl()" aria-label="Zamknij encyklopedie"><span>&#10005;</span> Zamknij</button>
+    <button class="bento-close" id="bentoCloseBtn" onclick="zamknijEncykl()" aria-label="Zamknij encyklopedie"><span>&#10005;</span> Zamknij</button>
     <div id="learnNav" class="learn-nav" style="display:none">
-      <button class="learn-nav-btn" onclick="encyklPoprzedni()" title="Poprzedni">&larr;</button>
+      <button class="learn-nav-btn" id="encNavPrev" onclick="encyklPoprzedni()" title="Poprzedni">&larr;</button>
       <span id="learnNavLabel" class="learn-nav-label"></span>
-      <button class="learn-nav-btn" onclick="encyklNastepny()" title="Nastepny">&rarr;</button>
+      <button class="learn-nav-btn" id="encNavNext" onclick="encyklNastepny()" title="Nastepny">&rarr;</button>
     </div>
     <div class="bento-scroll" id="loBody"></div>
   </div>
@@ -883,8 +883,8 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
   </aside>
 </main>
 <footer class="statbar">
-  <div class="st"><span>Agentow:</span><span class="st-v" id="sA">0</span></div>
-  <div class="st"><span>Polaczen:</span><span class="st-v" id="sC">0</span></div>
+  <div class="st"><span id="stLblA">Agentow:</span><span class="st-v" id="sA">0</span></div>
+  <div class="st"><span id="stLblC">Polaczen:</span><span class="st-v" id="sC">0</span></div>
   <div class="st"><span class="st-d st-op"></span><span class="st-v" id="sO">0</span></div>
   <div class="st"><span class="st-d st-so"></span><span class="st-v" id="sS">0</span></div>
   <div class="st"><span class="st-d st-ha"></span><span class="st-v" id="sH">0</span></div>
@@ -911,10 +911,10 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
     <div class="hitl-cards" id="hitlCards" role="list"></div>
     <footer class="hitl-footer">
       <div class="hitl-timer-wrap" role="timer" aria-live="polite">
-        <div class="hitl-timer-row"><span class="hitl-timer-label">Pozostaly czas</span><span class="hitl-timer-val" id="hitlTimerVal">120s</span></div>
+        <div class="hitl-timer-row"><span class="hitl-timer-label" id="hitlTimerLabel">Pozostaly czas</span><span class="hitl-timer-val" id="hitlTimerVal">120s</span></div>
         <div class="hitl-progress"><div class="hitl-progress-bar" id="hitlProgressBar"></div></div>
       </div>
-      <button class="hitl-auto" onclick="autoDecyzjaHITL()" aria-label="Zdecyduj automatycznie">&#9881; Zdecyduj za mnie</button>
+      <button class="hitl-auto" id="hitlAutoBtn" onclick="autoDecyzjaHITL()" aria-label="Zdecyduj automatycznie">&#9881; Zdecyduj za mnie</button>
     </footer>
   </div>
 </div>
@@ -923,47 +923,34 @@ body{scrollbar-color:rgba(129,140,248,0.15) transparent;scrollbar-width:thin}
   <div class="mo-box" id="moPBox">
     <div class="mo-h">
       <h2 id="moP-title">&#9889; Final Prompt</h2>
-      <button class="fp-toggle" onclick="przelFPRozsz()" id="fpExpToggle" aria-label="Powieksz okno">&#8596; Powieksz</button>
+      <button class="fp-toggle" onclick="przelFPRozsz()" id="fpExpToggle" aria-label="Powieksz okno">&#8596;</button>
       <button class="btn btn-d" onclick="zamknijModal('moP')" aria-label="Zamknij">&#10005;</button>
     </div>
     <div class="mo-b">
       <textarea id="fpA" readonly aria-label="Final prompt" style="display:none"></textarea>
       <div id="fpRich" class="fp-rich" role="region" aria-label="Kolorowy widok promptu"></div>
     </div>
-    <div class="mo-f"><button class="btn btn-p" onclick="kopiujFP(event)">&#128203; Kopiuj</button><button class="btn" onclick="zamknijModal('moP')">Zamknij</button></div>
+    <div class="mo-f"><button class="btn btn-p" id="fpCopyBtn" onclick="kopiujFP(event)">&#128203; Kopiuj</button><button class="btn" id="fpCloseBtn" onclick="zamknijModal('moP')">Zamknij</button></div>
   </div>
 </div>
 <div class="mo" id="moE" role="dialog" aria-modal="true" aria-labelledby="moE-title">
   <div class="mo-box" style="max-width:600px">
     <div class="mo-h"><h2 id="moE-title">&#8599; Export</h2><button class="btn btn-d" onclick="zamknijModal('moE')" aria-label="Zamknij">&#10005;</button></div>
     <div class="mo-b"><textarea id="exA" readonly aria-label="Eksportowany JSON" style="min-height:200px"></textarea></div>
-    <div class="mo-f"><button class="btn btn-p" onclick="navigator.clipboard.writeText(G('exA').value).then(()=>alert('Skopiowano!')).catch(()=>alert('Nie udalo sie skopiowac'))">Kopiuj</button><button class="btn" onclick="zamknijModal('moE')">Zamknij</button></div>
+    <div class="mo-f"><button class="btn btn-p" id="exCopyBtn" onclick="navigator.clipboard.writeText(G('exA').value).then(()=>alert(t('Skopiowano!'))).catch(()=>alert(t('Nie udalo sie skopiowac')))">Kopiuj</button><button class="btn" id="exCloseBtn" onclick="zamknijModal('moE')">Zamknij</button></div>
   </div>
 </div>
 <div class="mo" id="moI" role="dialog" aria-modal="true" aria-labelledby="moI-title">
   <div class="mo-box" style="max-width:600px">
     <div class="mo-h"><h2 id="moI-title">&#8601; Import</h2><button class="btn btn-d" onclick="zamknijModal('moI')" aria-label="Zamknij">&#10005;</button></div>
     <div class="mo-b"><textarea id="imA" aria-label="Wklej JSON" style="min-height:200px" placeholder="Wklej JSON..."></textarea></div>
-    <div class="mo-f"><button class="btn btn-p" onclick="wykonajImport()">Importuj</button><button class="btn" onclick="zamknijModal('moI')">Anuluj</button></div>
+    <div class="mo-f"><button class="btn btn-p" id="imImportBtn" onclick="wykonajImport()">Importuj</button><button class="btn" id="imCancelBtn" onclick="zamknijModal('moI')">Anuluj</button></div>
   </div>
 </div>
 <div class="mo" id="moK" role="dialog" aria-modal="true" aria-labelledby="moK-title">
   <div class="mo-box" style="max-width:500px">
-    <div class="mo-h"><h2 id="moK-title">Skroty klawiszowe</h2><button class="btn btn-d" onclick="zamknijModal('moK')" aria-label="Zamknij">&#10005;</button></div>
-    <div class="mo-b"><div class="kb-g">
-  <div class="kb-r"><span class="kb-k">Del</span><span class="kb-a">Usun zaznaczonych</span></div>
-  <div class="kb-r"><span class="kb-k">C</span><span class="kb-a">Tryb laczenia</span></div>
-  <div class="kb-r"><span class="kb-k">L</span><span class="kb-a">Auto-layout</span></div>
-  <div class="kb-r"><span class="kb-k">Esc</span><span class="kb-a">Odznacz / zamknij</span></div>
-  <div class="kb-r"><span class="kb-k">+/-</span><span class="kb-a">Zoom in/out</span></div>
-  <div class="kb-r"><span class="kb-k">0</span><span class="kb-a">Reset zoom</span></div>
-  <div class="kb-r"><span class="kb-k">Shift+klik</span><span class="kb-a">Dodaj do zaznaczenia</span></div>
-  <div class="kb-r"><span class="kb-k">Drag</span><span class="kb-a">Zaznaczenie prostokatne</span></div>
-  <div class="kb-r"><span class="kb-k">Ctrl+A</span><span class="kb-a">Zaznacz wszystkich</span></div>
-  <div class="kb-r"><span class="kb-k">Space</span><span class="kb-a">Symulacja pipeline</span></div>
-  <div class="kb-r"><span class="kb-k">Alt+drag</span><span class="kb-a">Przesun canvas</span></div>
-  <div class="kb-r"><span class="kb-k">D</span><span class="kb-a">Dialog timeline</span></div>
-</div></div><div class="mo-f"><button class="btn" onclick="zamknijModal('moK')">Zamknij</button></div></div></div>
+    <div class="mo-h"><h2 id="moK-title">Skroty klawiszowe</h2><button class="btn btn-d" id="kbCloseX" onclick="zamknijModal('moK')" aria-label="Zamknij">&#10005;</button></div>
+    <div class="mo-b"><div class="kb-g" id="kbBody"></div></div><div class="mo-f"><button class="btn" id="kbCloseBtn" onclick="zamknijModal('moK')">Zamknij</button></div></div></div>
 
 <script>
 const G=id=>document.getElementById(id);
@@ -3039,6 +3026,46 @@ const I18N_EN = {
   },
 
   // -------- PRESET CATEGORIES --------
+  // -------- PRESET USE / PROS / CONS (English translations of PM fields) --------
+  presetUse: {
+    solo:'Bugs, refactoring, scripts.',quick_fix:'Bugfixes, hotfixes, patches.',recon:'POC, spike, feasibility study.',
+    trio:'Full-stack, CRUD, REST API + UI.',reflect:'Deep research, due diligence.',bug_hunt:'Debugging, bug triage.',
+    content:'Documentation, README, reports.',plan_exec:'Migrations, refactoring.',perf_boost:'API optimization, Core Web Vitals.',
+    startup:'MVP, small SaaS, prototype.',cascade:'Large volume, batch.',test_suite:'Pre-release, CI/CD gate.',
+    a11y:'WCAG audit, a11y compliance.',security:'Security audit.',review:'Feature with review, critical PR.',
+    design_sys:'Design system, style guide.',api_modern:'REST\u2192GraphQL, refactoring.',ui_overhaul:'UI redesign, FE modernization.',
+    feature_sprint:'New feature, feature flag.',standard:'Typical web projects, SaaS.',data_pipe:'ETL, data warehouse.',
+    research:'Due diligence, stack selection.',legacy:'Refactoring, framework migration.',saas:'SaaS from scratch, dashboard.',
+    microservices:'Service mesh, containerization.',full:'Enterprise, mission-critical.',deep:'Enterprise with deep analysis.',
+    five_minds:'Architectural decisions.',deep_five_minds:'Critical enterprise, platforms, irreversible decisions.'
+  },
+  presetPros: {
+    solo:['\u2713 ~40-80K tokens','\u2713 Zero overhead'],quick_fix:['\u2713 Continuous fix\u2192test loop','\u2713 ~80-120K'],
+    recon:['\u2713 Research before code'],trio:['\u2713 Natural BE/FE split'],reflect:['\u2713 Self-correction'],
+    bug_hunt:['\u2713 2 QA in parallel'],content:['\u2713 2 data sources'],plan_exec:['\u2713 83% cost reduction'],
+    perf_boost:['\u2713 Dedicated QA Perf'],startup:['\u2713 Full cycle'],cascade:['\u2713 70-80% cheaper'],
+    test_suite:['\u2713 3 QA types'],a11y:['\u2713 UX specialist'],security:['\u2713 3 audit layers'],
+    review:['\u2713 Build + review separate'],design_sys:['\u2713 Research UX+docs'],api_modern:['\u2713 Analysis first'],
+    ui_overhaul:['\u2713 2 research sources'],feature_sprint:['\u2713 2x research'],standard:['\u2713 Full cycle'],
+    data_pipe:['\u2713 Feature Dev for data'],research:['\u2713 6 sources','\u2713 Critic + Synthesizer'],
+    legacy:['\u2713 GitHub patterns'],saas:['\u2713 Designer','\u2713 Integrator'],microservices:['\u2713 4 builders'],
+    full:['\u2713 Zero gaps'],deep:['\u2713 Max research','\u2713 76.9% parallel'],
+    five_minds:['\u2713 Adversarial debate','\u2713 Gold Solution'],
+    deep_five_minds:['\u2713 6 researchers + Critic','\u2713 5 experts debate 2x','\u2713 3 Human-in-the-Loop gates','\u2713 5 builders + Designer','\u2713 Triple QA']
+  },
+  presetCons: {
+    solo:['\u2717 No QA'],quick_fix:['\u2717 1 builder'],recon:['\u2717 1 source'],trio:['\u2717 No research'],
+    reflect:['\u2717 No implementation'],bug_hunt:['\u2717 No research'],content:['\u2717 No code generation'],
+    plan_exec:['\u2717 1 builder'],perf_boost:['\u2717 No frontend'],startup:['\u2717 1 researcher'],
+    cascade:['\u2717 Routing logic'],test_suite:['\u2717 No builders'],a11y:['\u2717 No backend'],
+    security:['\u2717 False positives'],review:['\u2717 No research'],design_sys:['\u2717 No backend'],
+    api_modern:['\u2717 No FE'],ui_overhaul:['\u2717 No backend'],feature_sprint:['\u2717 No designer'],
+    standard:['\u2717 ~250-400K'],data_pipe:['\u2717 No FE'],research:['\u2717 NO implementation'],
+    legacy:['\u2717 High cost'],saas:['\u2717 ~300-500K'],microservices:['\u2717 ~350-600K'],
+    full:['\u2717 ~400-700K'],deep:['\u2717 ~600-1200K'],five_minds:['\u2717 ~400-800K'],
+    deep_five_minds:['\u2717 ~800-1500K tokens','\u2717 $1.00-3.00 per run','\u2717 27 agents']
+  },
+
   presetCats: {
     'MICRO (2-3)': 'MICRO (2-3)', 'MALE (4-5)': 'SMALL (4-5)',
     'SREDNIE (6-8)': 'MEDIUM (6-8)', 'DUZE (9-12)': 'LARGE (9-12)',
@@ -3183,7 +3210,32 @@ const I18N_EN = {
     'Wklej JSON...': 'Paste JSON...', 'JSON error: ': 'JSON error: ',
     'Nazwa:': 'Name:', 'Config ': 'Config ',
     'Kolorowy widok promptu': 'Colored prompt view',
-    '⚡ Auto-dodaj': '⚡ Auto-add'
+    '⚡ Auto-dodaj': '⚡ Auto-add',
+    'Powieksz': 'Expand', 'Powieksz okno': 'Expand window',
+    'Skopiowano!': 'Copied!', 'Nie udalo sie skopiowac': 'Copy failed',
+    'Wklej JSON...': 'Paste JSON...', 'Wklej JSON': 'Paste JSON',
+    'Importuj': 'Import', 'Anuluj': 'Cancel',
+    'Agentow:': 'Agents:', 'Polaczen:': 'Connections:',
+    'Pozostaly czas': 'Time remaining', 'Zdecyduj za mnie': 'Decide for me',
+    'Zdecyduj automatycznie': 'Decide automatically',
+    'Opisz projekt lub problem...': 'Describe project or problem...',
+    'Opis projektu': 'Project description',
+    'Przelacz motyw': 'Toggle theme',
+    'Panel agentow i presetow': 'Agent and preset panel',
+    'Szczegoly agenta': 'Agent details',
+    'Kontrola zoomu': 'Zoom control', 'Przybliz': 'Zoom in', 'Oddal': 'Zoom out', 'Resetuj zoom': 'Reset zoom',
+    'Eksportowany JSON': 'Exported JSON',
+    'Brak miejsca w localStorage. Usun stare zapisy.': 'No space in localStorage. Delete old saves.',
+    'Usun zaznaczonych': 'Delete selected', 'Tryb laczenia': 'Connection mode',
+    'Odznacz / zamknij': 'Deselect / close', 'Dodaj do zaznaczenia': 'Add to selection',
+    'Zaznaczenie prostokatne': 'Rectangle select', 'Zaznacz wszystkich': 'Select all',
+    'Symulacja pipeline': 'Pipeline simulation', 'Przesun canvas': 'Pan canvas',
+    'Dialog timeline': 'Dialog timeline', 'Zamknij sugestie': 'Close suggestions',
+    'Eksportuj JSON': 'Export JSON',
+    'klik': 'click',
+    'Symulacja uruchomiona': 'Simulation started',
+    'Symulacja zatrzymana': 'Simulation stopped',
+    'Brama decyzyjna HITL aktywowana. Wymagana decyzja w 120 sekund.': 'HITL decision gate activated. Decision required within 120 seconds.'
   }
 };
 
@@ -3232,31 +3284,27 @@ function getPCatLabel(pl) {
 function getGlossary() {
   return currentLang === 'en' ? I18N_EN.glossary : GLOSSARY;
 }
+function getPresetUse(pid) {
+  return currentLang === 'en' && I18N_EN.presetUse[pid] ? I18N_EN.presetUse[pid] : (PM[pid]?.use || '');
+}
+function getPresetPros(pid) {
+  return currentLang === 'en' && I18N_EN.presetPros[pid] ? I18N_EN.presetPros[pid] : (PM[pid]?.p || []);
+}
+function getPresetCons(pid) {
+  return currentLang === 'en' && I18N_EN.presetCons[pid] ? I18N_EN.presetCons[pid] : (PM[pid]?.m || []);
+}
 function switchLang() {
   currentLang = currentLang === 'pl' ? 'en' : 'pl';
   document.documentElement.lang = currentLang;
   localStorage.setItem('acV31_lang', currentLang);
   const btn = G('langBtn');
   if (btn) btn.textContent = currentLang.toUpperCase();
-  // Update static HTML elements
-  const tabs=document.querySelectorAll('.sl-tab');
-  if(tabs[0])tabs[0].textContent=t('Agenci');
-  if(tabs[1])tabs[1].textContent=t('Presety');
-  if(tabs[2])tabs[2].textContent=t('Zapisane');
-  const paS=G('paS');if(paS)paS.placeholder='\uD83D\uDD0D '+t('Szukaj agenta...');
-  const simRunningNow=simRunning;
-  const simBtnEl=G('simBtn');if(simBtnEl&&!simRunningNow)simBtnEl.innerHTML='&#9654; '+t('Symulacja');
-  const saveBtn=document.querySelector('#panSv .btn-a');if(saveBtn)saveBtn.innerHTML='&#128190; '+t('Zapisz konfiguracje');
-  // Re-render all UI
-  rPalete(); rPresety(); rZapisy(); aktPasekFaz(); aktLicznik();
+  // Update all static HTML elements
+  aktStatHTML();
+  // Re-render all dynamic UI
+  rPalete(); rPresety(); rZapisy(); aktPasekFaz(); rWez();
   if (sel.size === 1) pokazWezel(sel.values().next().value);
   else if (sel.size > 1) pokazZazn();
-  else {
-    const sd = G('srS');
-    if (sd) sd.innerHTML = '<div class="sr-mt">' + t('Kliknij agenta na canvasie lub wybierz preset.') + '</div>';
-  }
-  rWez();
-  // Also re-render preset info if one is active
   if (actPr) pokazInfoPr(actPr);
 }
 
@@ -3351,7 +3399,7 @@ h+='<span class="pr-cnt">'+m.c+'</span></div>'})});G('prL').innerHTML=h}
 function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function safeParseLS(key,fallback){try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback))}catch(e){console.warn('Corrupt localStorage key:',key,e);return fallback}}
 function safeSaveLS(key,data){try{localStorage.setItem(key,JSON.stringify(data))}catch(e){if(e.name==='QuotaExceededError')pokazToast(t('Brak miejsca w localStorage. Usun stare zapisy.'),'error');else console.warn('localStorage save failed:',e)}}
-function rZapisy(){const c=safeParseLS('acV31',[]);if(!c.length){G('svL').innerHTML='<div class="sv-empty">'+t('Brak zapisanych.')+'</div>';return}let h='';c.forEach(function(x,i){const d=new Date(x.ts).toLocaleString('pl-PL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});h+='<div class="sv-item" onclick="ladujZapis('+i+')"><span class="sv-name">'+escHtml(x.name)+'</span><span class="sv-date">'+d+'</span><span class="sv-del" onclick="event.stopPropagation();usunZapis('+i+')">\u2715</span></div>'});G('svL').innerHTML=h}
+function rZapisy(){const c=safeParseLS('acV31',[]);if(!c.length){G('svL').innerHTML='<div class="sv-empty">'+t('Brak zapisanych.')+'</div>';return}let h='';c.forEach(function(x,i){const d=new Date(x.ts).toLocaleString(currentLang==='en'?'en-US':'pl-PL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});h+='<div class="sv-item" onclick="ladujZapis('+i+')"><span class="sv-name">'+escHtml(x.name)+'</span><span class="sv-date">'+d+'</span><span class="sv-del" onclick="event.stopPropagation();usunZapis('+i+')">\u2715</span></div>'});G('svL').innerHTML=h}
 
 // ================================================================
 // DRAG FROM PALETTE
@@ -3427,7 +3475,7 @@ function aktZazn(){
 // ================================================================
 function naKotwice(nid){if(!connFrom){connFrom=nid;const el=G(nid);if(el)el.classList.add('sel')}else if(connFrom!==nid){if(!conns.some(c=>(c.fi===connFrom&&c.ti===nid)||(c.fi===nid&&c.ti===connFrom))){conns.push({id:'c'+(idC++),fi:connFrom,ti:nid,tp:'one'});rPol();aktStan();aktLicznik()}const el2=G(connFrom);if(el2)el2.classList.remove('sel');connFrom=null}}
 function przelPolacz(){connMode=!connMode;connFrom=null;const b=G('cBtn');
-  b.textContent=connMode?'\uD83D\uDD17 Kliknij 2 agentow...':'\uD83D\uDD17 Polacz';
+  b.textContent=connMode?'\uD83D\uDD17 '+t('TRYB LACZENIA | Kliknij 2 agentow'):'\uD83D\uDD17 '+t('Polacz');
   b.classList.toggle('conn-active',connMode);
   b.classList.remove('hint-conn');
   b.style.borderColor='';
@@ -3514,9 +3562,9 @@ if(_kn){
   h+='<div class="ds"><div class="ds-l" style="color:var(--accent4)">'+t('CZEGO NIE ROBI')+'</div><ul style="list-style:none;padding:0;margin:0">'+_kn.doesNot.slice(0,3).map(function(x){return '<li style="font-size:9px;color:var(--t2);padding:2px 0 2px 14px;position:relative"><span style="position:absolute;left:0;color:var(--accent4)">\u2717</span>'+x+'</li>'}).join('')+'</ul></div>';
 }
 // Prompt display
-h+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+(nd.cp||getPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+h+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+(nd.cp||getAgentPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
 // Editable prompt
-h+='<div class="ds"><div class="ds-l">'+t('EDYTUJ PROMPT')+'</div><textarea class="ds-ta" id="nP" oninput="generujPreset(\''+nid+'\')" style="min-height:100px">'+(nd.cp||getPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea></div>';
+h+='<div class="ds"><div class="ds-l">'+t('EDYTUJ PROMPT')+'</div><textarea class="ds-ta" id="nP" oninput="generujPreset(\''+nid+'\')" style="min-height:100px">'+(nd.cp||getAgentPrompt(nd.defId)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea></div>';
 // Learn button
 h+='<button class="btn btn-learn" onclick="otworzEncykl(\'agent\',\''+nd.defId+'\')">&#128218; '+t('Encyklopedia agenta')+'</button>';
 G('srS').innerHTML=h}
@@ -3525,7 +3573,7 @@ function pokazDef(did){if(learnOpen){otworzEncykl('agent',did);return}const d=AD
 let dh='<div class="ds-card"><div class="ds-avatar"><div class="ds-avatar-orb">'+svgAgenta(d.id,32)+'</div><div class="ds-avatar-info"><h4>'+getAgentName(d.id)+'</h4><div class="ds-role">'+getCatLabel(d.cat)+'</div></div></div><p style="font-size:10px;color:var(--t2);line-height:1.5">'+getAgentDesc(d.id)+'</p></div>';
 dh+='<div class="ds"><div class="ds-l">'+t('NARZEDZIA')+'</div><div class="ds-tools-list">'+d.tools.split(',').map(tool=>'<span class="ds-tool-chip">'+tool.trim()+'</span>').join('')+'</div></div>';
 dh+='<div class="ds"><div class="ds-l">'+t('MODEL')+'</div><div class="ds-v">'+d.model.toUpperCase()+'</div></div>';
-dh+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+getPrompt(d.id).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+dh+='<div class="ds"><div class="ds-l">'+t('PROMPT AGENTA')+'</div><div class="ds-prompt">'+getAgentPrompt(d.id).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
 // V21: Knowledge preview in palette detail
 const _kd=getAgentKnowledge(did);
 if(_kd){
@@ -4058,7 +4106,7 @@ G('srS').innerHTML=
 (isFeatured?'<div style="text-align:center;padding:8px;margin-bottom:8px;background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(248,113,113,0.05));border:1px solid rgba(245,158,11,0.2);border-radius:12px"><div style="font-family:var(--mn);font-size:7px;color:var(--gold);letter-spacing:.1em;margin-bottom:2px">'+t('ULTIMATE PRESET')+'</div><div style="font-family:var(--hd);font-size:14px;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--accent4));-webkit-background-clip:text;-webkit-text-fill-color:transparent">'+m.c+' '+t('agentow')+' | '+m.pt+'</div></div>':'')+
 '<div class="ds-card"><div class="ds-avatar"><div class="ds-avatar-orb"'+(isFeatured?' style="border-color:rgba(245,158,11,0.4);box-shadow:0 0 20px rgba(245,158,11,0.15)"':'')+'>'+svgPresetu(pid,32)+'</div><div class="ds-avatar-info"><h4>'+getPresetName(pid)+'</h4><div class="ds-role">'+m.c+' '+t('agentow')+' | '+m.pt+'</div></div></div><p style="font-size:10px;color:var(--t2);line-height:1.5">'+getPresetDesc(pid)+'</p></div>'+
 (desc?'<div class="ds"><div class="ds-l">'+t('OPIS')+'</div><div class="ds-v">'+desc+'</div></div>':'')+
-'<div class="ds"><div class="ds-l">'+t('KIEDY UZYWAC')+'</div><div class="ds-v">'+m.use+'</div></div>'+
+'<div class="ds"><div class="ds-l">'+t('KIEDY UZYWAC')+'</div><div class="ds-v">'+getPresetUse(pid)+'</div></div>'+
 '<div class="ds"><div class="ds-l">'+t('CLAUDE CODE COMMAND')+'</div><div style="display:flex;align-items:center;gap:6px;background:var(--bg-input);border-radius:8px;padding:8px 10px;margin:4px 0;cursor:pointer" onclick="kopiujCmd(this,\''+pid+'\')" title="'+t('Kliknij aby skopiowac')+'"><code style="flex:1;font-family:var(--mn);font-size:12px;color:var(--accent2);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">/'+pid.replace(/_/g,'-')+'</code><span style="font-size:14px;color:var(--t3);flex-shrink:0" id="cmdCopy_'+pid+'">&#128203;</span></div><div style="font-size:9px;color:var(--t3);margin-top:2px">'+t('Kliknij aby skopiowac komende z argumentem')+'</div></div>'+
 '<div class="ds"><div class="ds-l">'+t('SKLAD')+'</div><div style="font-family:var(--mn);font-size:10px;margin:3px 0">'+mh+'</div></div>'+
 '<div class="ds"><div class="ds-l">'+t('ZMIEN MODEL')+'</div><div class="ds-mdl-big">'+
@@ -4066,8 +4114,8 @@ G('srS').innerHTML=
 '<button class="ds-mdl-btn m-sonnet" onclick="zmienWszModel(\'sonnet\')"><span class="mdl-dot"></span><span class="mdl-name">Sonnet 4.6</span><span class="mdl-meta"><div>200K ctx</div><div>$3 / $15</div></span></button>'+
 '<button class="ds-mdl-btn m-haiku" onclick="zmienWszModel(\'haiku\')"><span class="mdl-dot"></span><span class="mdl-name">Haiku 4.5</span><span class="mdl-meta"><div>200K ctx</div><div>$0.80 / $4</div></span></button>'+
 '</div></div>'+
-'<div class="ds"><div class="ds-l">'+t('ZALETY')+'</div><ul class="pi-ul">'+m.p.map(x=>'<li class="pi-pro">'+x+'</li>').join('')+'</ul></div>'+
-'<div class="ds"><div class="ds-l">'+t('WADY')+'</div><ul class="pi-ul">'+m.m.map(x=>'<li class="pi-con">'+x+'</li>').join('')+'</ul></div>'+
+'<div class="ds"><div class="ds-l">'+t('ZALETY')+'</div><ul class="pi-ul">'+getPresetPros(pid).map(x=>'<li class="pi-pro">'+x+'</li>').join('')+'</ul></div>'+
+'<div class="ds"><div class="ds-l">'+t('WADY')+'</div><ul class="pi-ul">'+getPresetCons(pid).map(x=>'<li class="pi-con">'+x+'</li>').join('')+'</ul></div>'+
 (function(){const pk=getPresetKnowledge(pid);if(!pk)return '';let h='';
 if(pk.who)h+='<div class="ds"><div class="ds-l">'+t('CZYM JEST')+'</div><div style="font-size:10px;color:var(--t2);line-height:1.6">'+pk.who.split(' | ')[0]+'</div></div>';
 if(pk.whenToUse&&pk.whenToUse.length)h+='<div class="ds"><div class="ds-l" style="color:var(--accent2)">'+t('CO ROBI / KIEDY UZYWAC')+'</div><ul style="list-style:none;padding:0;margin:0">'+pk.whenToUse.slice(0,4).map(function(x){return '<li style="font-size:9px;color:var(--t2);padding:2px 0 2px 14px;position:relative"><span style="position:absolute;left:0;color:var(--accent2)">\u2713</span>'+x.split(' | ')[0]+'</li>'}).join('')+'</ul></div>';
@@ -4108,7 +4156,7 @@ function wykonajImport(){try{const d=JSON.parse(G('imA').value);nodes=[];conns=[
 (d.nodes||[]).forEach(n=>{const def=AD_MAP.get(n.d);if(!def)return;nodes.push({id:'n'+(idC++),defId:n.d,x:n.x||0,y:n.y||0,model:n.m||def.model,cp:n.p||null})});
 (d.conns||[]).forEach(c=>{if(nodes[c.fi]&&nodes[c.ti])conns.push({id:'c'+(idC++),fi:nodes[c.fi].id,ti:nodes[c.ti].id,tp:c.t||'one'})});
 if(d.prob)G('probIn').value=d.prob;actPr=d.pr||null;rWez();aktStan();aktLicznik();aktPasekFaz();zamknijModal('moI')}catch(e){alert('JSON error: '+e.message)}}
-function zapiszKfg(){const name=prompt('Nazwa:')||'Config '+new Date().toLocaleString('pl-PL');
+function zapiszKfg(){const name=prompt(t('Nazwa:'))||'Config '+new Date().toLocaleString(currentLang==='en'?'en-US':'pl-PL');
 const d={name,nodes:structuredClone(nodes),conns:structuredClone(conns),prob:G('probIn').value,idC,ts:new Date().toISOString()};
 const c=safeParseLS('acV31',[]);c.push(d);safeSaveLS('acV31',c);rZapisy();zmienTab('sv',document.querySelectorAll('.sl-tab')[2])}
 function ladujZapis(i){const c=safeParseLS('acV31',[]);const d=c[i];if(!d)return;nodes=structuredClone(d.nodes);conns=structuredClone(d.conns);idC=d.idC||0;sel.clear();G('probIn').value=d.prob||'';actPr=null;rWez();aktStan();aktLicznik();podswPreset(null);aktPasekFaz()}
@@ -4130,13 +4178,13 @@ const iC=conns.filter(c=>c.ti===nd.id).map(c=>{const sn=nodes.find(n=>n.id===c.f
 p+='### '+(isEn?'Agent':'Agent')+' '+(i+1)+': '+getAgentName(d.id)+' ['+nd.model.toUpperCase()+']\n'+(isEn?'Role: ':'Rola: ')+getAgentDesc(d.id)+'\n';
 if(iC.length)p+=(isEn?'Receives from: ':'Odbiera od: ')+iC.join(', ')+'\n';
 if(oC.length)p+=(isEn?'Sends to: ':'Wysyla do: ')+oC.join(', ')+'\n';
-p+='\n'+(isEn?'Prompt':'Prompt')+':\n"""\n'+getPrompt(nd.defId)+'\n"""\n\n'});
+p+='\n'+(isEn?'Prompt':'Prompt')+':\n"""\n'+getAgentPrompt(nd.defId)+'\n"""\n\n'});
 p+=isEn
   ?'## RULES\n- Narrow context per agent\n- MANIFEST.md scratchpad\n- Gates between phases\n- Max 10 sequential steps\n- Opus=strategy, Sonnet=build, Haiku=research/QA\n\n## EXECUTION\nTop to bottom, parallel within level.\n'
   :'## ZASADY\n- Waski kontekst per agent\n- MANIFEST.md scratchpad\n- Gate\'y miedzy fazami\n- Max 10 krokow sekwencyjnych\n- Opus=strategia, Sonnet=build, Haiku=research/QA\n\n## URUCHAMIANIE\nOd gory do dolu, rownolegle na poziomie.\n';
 G('fpA').value=p;rysujFPKolor();G('moP').classList.add('show')}
-function kopiujFP(e){navigator.clipboard.writeText(G('fpA').value).then(()=>{const b=e&&e.target||document.querySelector('#moP .btn-p');b.textContent='\u2705 OK!';setTimeout(()=>b.textContent='\uD83D\uDCCB Kopiuj',1500)}).catch(()=>alert('Nie udalo sie skopiowac'))}
-function kopiujCmd(el,pid){const cmd='/'+pid.replace(/_/g,'-')+' ';navigator.clipboard.writeText(cmd).then(()=>{const sp=G('cmdCopy_'+pid);if(sp){sp.innerHTML='&#9989;';setTimeout(()=>sp.innerHTML='&#128203;',1500)}}).catch(()=>alert('Nie udalo sie skopiowac'))}
+function kopiujFP(e){navigator.clipboard.writeText(G('fpA').value).then(()=>{const b=e&&e.target||document.querySelector('#moP .btn-p');b.textContent='\u2705 OK!';setTimeout(()=>b.innerHTML='&#128203; '+t('Kopiuj'),1500)}).catch(()=>alert(t('Nie udalo sie skopiowac')))}
+function kopiujCmd(el,pid){const cmd='/'+pid.replace(/_/g,'-')+' ';navigator.clipboard.writeText(cmd).then(()=>{const sp=G('cmdCopy_'+pid);if(sp){sp.innerHTML='&#9989;';setTimeout(()=>sp.innerHTML='&#128203;',1500)}}).catch(()=>alert(t('Nie udalo sie skopiowac')))}
 
 // V23: Unified colored Final Prompt (always rich view)
 function przelFPRozsz(){
@@ -4145,7 +4193,7 @@ function przelFPRozsz(){
   G('fpExpToggle').classList.toggle('active',box.classList.contains('mo-expanded'));
 }
 function rysujFPKolor(){
-  const prob=G('probIn').value||'(brak opisu)';
+  const prob=G('probIn').value||(currentLang==='en'?'(no description)':'(brak opisu)');
   const preset=actPr?PM[actPr]:null;
   let h='<div class="fp-meta">';
   h+='<strong>'+t('ZADANIE:')+'</strong> '+prob.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'<br>';
@@ -4170,7 +4218,7 @@ function rysujFPKolor(){
       const roleDesc=getAgentDesc(d.id);
       h+='<span class="fp-section-role">'+(roleDesc.length>60?roleDesc.substring(0,60)+'...':roleDesc)+'</span>';
       h+='</div>';
-      h+='<div class="fp-section-body">'+(nd.cp||getPrompt(d.id)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';
+      h+='<div class="fp-section-body">'+(nd.cp||getAgentPrompt(d.id)).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';
       h+='</div>';
     });
   });
@@ -4367,9 +4415,9 @@ function rysujBentoPreset(pid){
   pr.forEach(p=>{const d=AD_MAP.get(p.d);if(!d)return;
     h+='<div class="bento-info-row"><div class="bento-info-icon">'+svgAgenta(d.id,12)+'</div><div class="bento-info-key" style="min-width:auto">'+getAgentName(d.id)+'</div><div class="bento-info-val" style="margin-left:auto;font-size:9px;color:var(--t2)">'+d.model.toUpperCase()+'</div></div>';
   });h+='</div>';
-  h+='<div class="bento-card bento-2x1" style="--i:'+(ci++)+'"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><div style="font-family:var(--mn);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px">'+t('Zalety')+'</div>'+m.p.map(x=>'<div style="font-size:11px;color:rgba(228,228,231,.6);margin:4px 0">'+x+'</div>').join('')+'</div><div><div style="font-family:var(--mn);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent4);margin-bottom:8px">'+t('Wady')+'</div>'+m.m.map(x=>'<div style="font-size:11px;color:rgba(228,228,231,.6);margin:4px 0">'+x+'</div>').join('')+'</div></div></div>';
+  h+='<div class="bento-card bento-2x1" style="--i:'+(ci++)+'"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><div style="font-family:var(--mn);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px">'+t('Zalety')+'</div>'+getPresetPros(pid).map(x=>'<div style="font-size:11px;color:rgba(228,228,231,.6);margin:4px 0">'+x+'</div>').join('')+'</div><div><div style="font-family:var(--mn);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent4);margin-bottom:8px">'+t('Wady')+'</div>'+getPresetCons(pid).map(x=>'<div style="font-size:11px;color:rgba(228,228,231,.6);margin:4px 0">'+x+'</div>').join('')+'</div></div></div>';
   // Row 7 (no pk only): Kiedy uzywac tags (4x1) - full width fallback
-  if(!pk){h+='<div class="bento-card bento-4x1 bento-tags" style="--i:'+(ci++)+'"><div class="bento-tags-title">'+t('Kiedy uzywac')+'</div><div class="bento-tags-cloud" style="gap:6px">'+m.use.split(',').map((u,i)=>{const cls=['tag-red','tag-cyan','tag-green','tag-amber','tag-violet'];return '<span class="bento-tag '+cls[i%cls.length]+'" style="font-size:10px;padding:5px 14px">'+u.trim()+'</span>'}).join('')+'</div></div>';}
+  if(!pk){h+='<div class="bento-card bento-4x1 bento-tags" style="--i:'+(ci++)+'"><div class="bento-tags-title">'+t('Kiedy uzywac')+'</div><div class="bento-tags-cloud" style="gap:6px">'+getPresetUse(pid).split(',').map((u,i)=>{const cls=['tag-red','tag-cyan','tag-green','tag-amber','tag-violet'];return '<span class="bento-tag '+cls[i%cls.length]+'" style="font-size:10px;padding:5px 14px">'+u.trim()+'</span>'}).join('')+'</div></div>';}
   h+='</div>';
   G('loBody').innerHTML=h;G('loBody').scrollTop=0;
 }
@@ -4454,7 +4502,6 @@ if(savedTheme==='light'){document.documentElement.setAttribute('data-theme','lig
 // V30: Init language button and static HTML translations
 const _langBtn=G('langBtn');if(_langBtn)_langBtn.textContent=currentLang.toUpperCase();
 function aktStatHTML(){
-  if(currentLang!=='en')return;
   // Tab labels
   const tabs=document.querySelectorAll('.sl-tab');
   if(tabs[0])tabs[0].textContent=t('Agenci');
@@ -4462,12 +4509,77 @@ function aktStatHTML(){
   if(tabs[2])tabs[2].textContent=t('Zapisane');
   // Search placeholder
   const paS=G('paS');if(paS)paS.placeholder='\uD83D\uDD0D '+t('Szukaj agenta...');
-  // Buttons
-  const simBtn=G('simBtn');if(simBtn)simBtn.innerHTML='&#9654; '+t('Symulacja');
+  // Topbar buttons
+  const simBtnEl=G('simBtn');if(simBtnEl&&!simRunning)simBtnEl.innerHTML='&#9654; '+t('Symulacja');
+  // Topbar textarea
+  const probIn=G('probIn');if(probIn){probIn.placeholder=t('Opisz projekt lub problem...');probIn.setAttribute('aria-label',t('Opis projektu'))}
+  // Theme button
+  const themeBtn=G('themeToggle');if(themeBtn)themeBtn.setAttribute('aria-label',t('Przelacz motyw'));
+  // Side panels
+  const sL=G('sL');if(sL)sL.setAttribute('aria-label',t('Panel agentow i presetow'));
+  const sR=G('sR');if(sR)sR.setAttribute('aria-label',t('Szczegoly agenta'));
+  // Sidebar header
+  const srHdr=document.querySelector('.sr-hdr h3');if(srHdr)srHdr.innerHTML='&#128203; '+t('Szczegoly');
   // Save button in saved panel
   const saveBtn=document.querySelector('#panSv .btn-a');if(saveBtn)saveBtn.innerHTML='&#128190; '+t('Zapisz konfiguracje');
-  // Sidebar default text
-  const srS=G('srS');if(srS&&srS.querySelector('.sr-mt'))srS.querySelector('.sr-mt').textContent=t('Kliknij agenta na canvasie lub wybierz preset.');
+  // Sidebar default text (only if showing default hint, not agent/preset details)
+  const srMt=document.querySelector('#srS > .sr-mt');
+  if(srMt)srMt.innerHTML=t('Kliknij agenta na canvasie lub wybierz preset.')+'<br><br>&#10022; '+t('Przeciagnij agenta z panelu')+'<br>&#10022; '+t('Kliknij wezel aby wybrac')+'<br>&#10022; '+t('Shift+klik = multi-select')+'<br>&#10022; '+t('Przeciagnij na canvasie = zaznaczenie prostokatne')+'<br>&#10022; '+t('Scroll = zoom')+'<br>&#10022; '+t('Alt+przeciagnij = panorama');
+  // Canvas control buttons
+  const cBtn=G('cBtn');if(cBtn&&!connMode)cBtn.innerHTML='&#128279; '+t('Polacz');
+  const acBtn=G('acBtn');if(acBtn)acBtn.innerHTML='&#9889; '+t('Auto-polacz');
+  const dtlBtn=G('dtlBtn');if(dtlBtn)dtlBtn.innerHTML='&#128172; '+t('Dialog');
+  const delBtn=G('delBtn');if(delBtn)delBtn.innerHTML='&#128465; '+t('Usun');
+  const clrBtn=G('clrBtn');if(clrBtn)clrBtn.textContent=t('Wyczysc');
+  // Suggest bar
+  const sugAdd=G('suggestAddBtn');if(sugAdd)sugAdd.textContent='+ '+t('+ Dodaj').replace('+ ','');
+  const sugClose=document.querySelector('.suggest-close');if(sugClose)sugClose.setAttribute('aria-label',t('Zamknij sugestie'));
+  // Zoom controls
+  const zmCtrl=document.querySelector('.zm-ctrl');if(zmCtrl)zmCtrl.setAttribute('aria-label',t('Kontrola zoomu'));
+  document.querySelectorAll('.zm-ctrl .btn').forEach(function(b,i){
+    if(i===0)b.setAttribute('aria-label',t('Przybliz'));
+    if(i===1)b.setAttribute('aria-label',t('Oddal'));
+    if(i===2)b.setAttribute('aria-label',t('Resetuj zoom'));
+  });
+  // Encyclopedia close/nav
+  const bentoClose=G('bentoCloseBtn');if(bentoClose){bentoClose.innerHTML='<span>&#10005;</span> '+t('Zamknij');bentoClose.setAttribute('aria-label',t('Zamknij encyklopedie'))}
+  const navPrev=G('encNavPrev');if(navPrev)navPrev.title=t('Poprzedni');
+  const navNext=G('encNavNext');if(navNext)navNext.title=t('Nastepny');
+  // Status bar labels
+  const stA=G('stLblA');if(stA)stA.textContent=t('Agentow:');
+  const stC=G('stLblC');if(stC)stC.textContent=t('Polaczen:');
+  // HITL overlay
+  const hitlTL=G('hitlTimerLabel');if(hitlTL)hitlTL.textContent=t('Pozostaly czas');
+  const hitlAuto=G('hitlAutoBtn');if(hitlAuto){hitlAuto.innerHTML='&#9881; '+t('Zdecyduj za mnie');hitlAuto.setAttribute('aria-label',t('Zdecyduj automatycznie'))}
+  // Final Prompt modal
+  const fpExp=G('fpExpToggle');if(fpExp){fpExp.innerHTML='&#8596; '+t('Powieksz');fpExp.setAttribute('aria-label',t('Powieksz okno'))}
+  const fpCopy=G('fpCopyBtn');if(fpCopy)fpCopy.innerHTML='&#128203; '+t('Kopiuj');
+  const fpClose=G('fpCloseBtn');if(fpClose)fpClose.textContent=t('Zamknij');
+  const fpRich=G('fpRich');if(fpRich)fpRich.setAttribute('aria-label',t('Kolorowy widok promptu'));
+  // Export modal
+  const exCopy=G('exCopyBtn');if(exCopy)exCopy.textContent=t('Kopiuj');
+  const exClose=G('exCloseBtn');if(exClose)exClose.textContent=t('Zamknij');
+  const exA=G('exA');if(exA)exA.setAttribute('aria-label',t('Eksportowany JSON'));
+  // Import modal
+  const imA=G('imA');if(imA){imA.setAttribute('aria-label',t('Wklej JSON'));imA.placeholder=t('Wklej JSON...')}
+  const imImport=G('imImportBtn');if(imImport)imImport.textContent=t('Importuj');
+  const imCancel=G('imCancelBtn');if(imCancel)imCancel.textContent=t('Anuluj');
+  // Keyboard shortcuts modal
+  const kbTitle=G('moK-title');if(kbTitle)kbTitle.textContent=t('Skroty klawiszowe');
+  const kbClose=G('kbCloseBtn');if(kbClose)kbClose.textContent=t('Zamknij');
+  const kbBody=G('kbBody');
+  if(kbBody){
+    const kb=[
+      ['Del',t('Usun zaznaczonych')],['C',t('Tryb laczenia')],['L','Auto-layout'],
+      ['Esc',t('Odznacz / zamknij')],['+/-','Zoom in/out'],['0','Reset zoom'],
+      ['Shift+'+t('klik'),t('Dodaj do zaznaczenia')],['Drag',t('Zaznaczenie prostokatne')],
+      ['Ctrl+A',t('Zaznacz wszystkich')],['Space',t('Symulacja pipeline')],
+      ['Alt+drag',t('Przesun canvas')],['D',t('Dialog timeline')]
+    ];
+    kbBody.innerHTML=kb.map(function(r){return '<div class="kb-r"><span class="kb-k">'+r[0]+'</span><span class="kb-a">'+r[1]+'</span></div>'}).join('');
+  }
+  // Update counter
+  aktLicznik();
 }
 aktStatHTML();
 inicjGwiazdy();inicjStrumienDanych();rPalete();rPresety();rZapisy();aktSiatke();ladujPreset('deep_five_minds');
