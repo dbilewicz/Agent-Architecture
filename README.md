@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/TheJacksonCode/Agent-Architecture/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
   <a href="https://thejacksoncode.github.io/Agent-Architecture/"><img src="https://img.shields.io/badge/live_demo-GitHub_Pages-7C3AED.svg" alt="Live Demo"></a>
-  <img src="https://img.shields.io/badge/version-v32.16-F59E0B.svg" alt="v32.16">
+  <img src="https://img.shields.io/badge/version-v32-F59E0B.svg" alt="v32">
   <img src="https://img.shields.io/badge/agents-35-818CF8.svg" alt="35 Agents">
   <img src="https://img.shields.io/badge/presets-42-34D399.svg" alt="42 Presets">
   <img src="https://img.shields.io/badge/languages-PL_EN-06B6D4.svg" alt="PL/EN">
@@ -181,7 +181,7 @@ See `docs/SKILLS_ARCHITECTURE.md` for the full skill format, model routing (Opus
 
 ## Versioning
 
-Each new version is saved as a **separate file** (`v32.1/`, `v32.2/`, ..., `v32.16/`). Previous versions remain untouched for reference and reuse of research. The root `index.html` always mirrors the latest shipped version.
+Each major version is saved in its own folder (`v32/`) as a single HTML file. The root `index.html` always mirrors the latest shipped version. Historical iteration builds (v32.1 through v32.16) are preserved in git history.
 
 See [VERSIONS.md](VERSIONS.md) for the full changelog covering all versions from v1 through v32.16.
 
