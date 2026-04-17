@@ -49,7 +49,7 @@ docs/                       # Architecture documentation
   SKILLS_ARCHITECTURE.md    # 35 agents: format, fields, model routing
   ROUTING_SYSTEM.md         # Auto-routing: catalog, token budget, flow
   screenshots/
-research-preset-routing/    # Research reports (R1-R7 + synthesis)
+Research/research-preset-routing/  # Research reports (R1-R7 + synthesis)
 generate_skills.js          # Regenerate skills from HTML
 generate_commands.js        # Regenerate commands from HTML
 VERSIONS.md                 # Full version history (v1-v32)

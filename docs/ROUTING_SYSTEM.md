@@ -1,6 +1,6 @@
 # Preset Routing System - Auto-Selection of Agent Teams
 
-**Date:** 2026-04-16 | **Source:** research-preset-routing/ (R1-R7 + SYNTHESIS.md)
+**Date:** 2026-04-16 | **Source:** Research/research-preset-routing/ (R1-R7 + SYNTHESIS.md)
 
 ## Overview
 
@@ -63,8 +63,8 @@ Claude Code: "I suggest /security-multi-vector (9 agents)..."
 
 ## Files
 
-- Research reports: `research-preset-routing/R1-R7*.md`
-- Synthesis: `research-preset-routing/SYNTHESIS.md`
+- Research reports: `Research/research-preset-routing/R1-R7*.md`
+- Synthesis: `Research/research-preset-routing/SYNTHESIS.md`
 - Catalog: `~/.claude/PRESET_CATALOG.md`
 - Routing: `~/.claude/CLAUDE.md` (Agent Architecture section)
 - Skills: `~/.claude/skills/*.md` (35 agent prompts, regenerated from v32.16)
