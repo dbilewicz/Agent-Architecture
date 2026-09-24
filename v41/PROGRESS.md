@@ -1322,3 +1322,14 @@ Maciej: **publikujemy tylko v41**, a historia zmian miedzy wersjami trafi do REA
 sekcja na dole - **README pisany na koncu, nie teraz**. To zamyka warunek 1 z trzech
 blokujacych (do repo idzie ~7 MB zamiast 67 MB). **Warunek 2 nadal blokuje: Research
 wymaga anonimizacji i nikt tego nie zrobil.** Zapowiedz publikacji to nadal PLAN, nie zgoda.
+
+## 2026-09-24: infografiki usuniete (DD84)
+
+Powod: zgloszenia, ze pobierany projekt to glownie obrazki. Maciej: infografik nie rozwijamy.
+Usuniete `AGENT_MEDIA` (4 x base64), lightbox powiekszenia, martwe linki PDF do `notebookLM/`
+(folderu nigdy nie bylo w repo). Skrypt: `usun_infografiki_v41.js` w scratchpadzie sesji
+2502d974 (kazda kotwica sprawdzana na dokladnie jedno wystapienie). Plik **7 093 871 ->
+3 511 779 bajtow**, `index.html` skopiowany. 499 testow zielonych + test dymny `smoke_dd84.js`
+(26 OK: karty res_reddit/res_x/res_github/res_forums w PL i EN). `docs/Animation.gif` zostaje
+w repo. Historia gita (~600 MB starych mediow) - nierozstrzygnieta, czeka na Macieja.
+Nic nie wypchniete.

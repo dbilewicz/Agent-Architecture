@@ -144,4 +144,4 @@ authoritative source. This does NOT apply when simply using presets in other pro
 - **Preset definitions:** `PRESET_EDU_PL` object in the HTML
 - **Skill files:** generated subset (operational fields only) via `generate_skills.js`
 - **Command files:** orchestration only (phases, gates, skill references) via `generate_commands.js`
-- **Current version:** v41 (~7.1 MB)
+- **Current version:** v41 (~3.5 MB)

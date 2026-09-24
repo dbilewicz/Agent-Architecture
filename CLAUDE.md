@@ -9,7 +9,7 @@ Primary purpose: **education** - understand how each agent thinks, what it does,
 
 ## Current version
 
-**Working version: v41** - 60 agents, 62 presets, ~7.0 MB. This is the source of truth for
+**Working version: v41** - 60 agents, 62 presets, ~3.5 MB. This is the source of truth for
 agent and preset definitions; older versions are frozen.
 
 - Source: `v41/AGENT_TEAMS_CONFIGURATOR_v41.html`
@@ -30,7 +30,7 @@ button in the header, between Hooki and the cost bar.
 
 Beyond the tutorial, v41 also carries a cosmetics pass (DD59-DD70), the closed A/B/C backlog
 (DD71-DD75), an anonymised `Research/` folder (DD74) and two performance rounds - encyclopedia
-(DD76) and canvas (DD77). Current size 7 090 972 bytes, **422 tests green** across five suites.
+(DD76) and canvas (DD77). Infographics removed in DD84 (2026-09-24). Current size 3 511 779 bytes, **499 tests green** across six suites.
 v41 was published to GitHub 2026-09-15 (Maciej's explicit go-ahead). Any FUTURE push still
 needs his explicit consent each time - this is a standing rule, not a one-time approval.
 

@@ -236,7 +236,7 @@ See [`docs/SKILLS_ARCHITECTURE.md`](docs/SKILLS_ARCHITECTURE.md) for the full sk
 
 ## Technical details
 
-- **Format** - single HTML file, ~7.1 MB (includes all encyclopedia content in PL + EN, inline SVG icons)
+- **Format** - single HTML file, ~3.5 MB (includes all encyclopedia content in PL + EN, inline SVG icons)
 - **Dependencies** - zero. No npm, no CDN, no build step
 - **Stack** - Vanilla JS (ES2022) + inline SVG + CSS transitions + Canvas 2D + container queries
 - **State** - localStorage persistence (canvas, theme, icon mode, language preference, custom agents), with a versioned migration chain
